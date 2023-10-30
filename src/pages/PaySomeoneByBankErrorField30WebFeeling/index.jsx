@@ -6,7 +6,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
   const navigate = useNavigate ();
   const [bsb, setBsb] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
-  const [accountName, setAccountName] = useState('');
+ // const [accountName, setAccountName] = useState('');
   const [amount, setAmount] = useState('');
   const [reason, setReason] = useState('');
 
@@ -19,14 +19,13 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
     const data = {
       bsb,
       accountNumber,
-      accountName,
       amount,
       reason,
     };
 
     try {
       // Send a POST request to the backend
-      const response = await fetch('http://localhost:3001/send-money', {
+      const response = await fetch('http://localhost:8080//sys/user/payByAccountNumber', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +33,6 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
         body: JSON.stringify({
           bsb,
           accountNumber,
-          accountName,
           amount,
           reason
         }),
@@ -390,7 +388,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                         alt="keyboard8419852_Two"
                       />
                     </div> */}
-                     <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
+                     {/* <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
                      items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                     <input className="ml-[47px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
                       type="text" value={accountName} onChange={(e) => setAccountName(e.target.value)} placeholder='Account Name'/>                     
@@ -399,7 +397,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                         src="images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
-                    </div>
+                    </div> */}
                     {/* <div className="bg-white-A700 border border-light_blue-900 border-solid flex md:flex-col flex-row md:gap-5 items-start justify-start mt-[54px] px-[7px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                       <Img
                         className="h-[88px] md:mt-0 mt-[5px]"

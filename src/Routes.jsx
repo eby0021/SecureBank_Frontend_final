@@ -56,14 +56,23 @@ const ChatBotPage30WebFeeling = React.lazy(() =>
 const HomePageSavingsAccount30WebFeeling = React.lazy(() =>
   import("pages/HomePageSavingsAccount30WebFeeling"),
 );
+
+
 const HomePageEveryDayAccount30WebFeeling = React.lazy(() =>
   import("pages/HomePageEveryDayAccount30WebFeeling"),
 );
+
+
+
 const LoginPage30Error = React.lazy(() => import("pages/LoginPage30Error"));
 const LoginPagereCaptcha30 = React.lazy(() =>
   import("pages/LoginPagereCaptcha30"),
 );
+
+
 const LoginPage30 = React.lazy(() => import("pages/LoginPage30"));
+
+
 const SignupPayIDCheckedPage30 = React.lazy(() =>
   import("pages/SignupPayIDCheckedPage30"),
 );
@@ -95,7 +104,7 @@ const ProjectRoutes = () => {
           />
           <Route path="/loginpage30error" element={<LoginPage30Error />} />
           <Route
-            path="/homepageeverydayaccount30webfeeling"
+            path="/homepageeverydayaccount30webfeeling/:userID"
             element={<HomePageEveryDayAccount30WebFeeling />}
           />
           <Route

@@ -1,9 +1,10 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Img, Line, List, Text } from "components";
 
 const HomePageEveryDayAccount30WebFeelingPage = () => {
   const navigate = useNavigate();
+  const { userID } = useParams(); // Get the userID from the URL params
   const handlePayClick = () => {
     navigate('/paysomeonebybankerrorfield30webfeeling');
   }
@@ -47,8 +48,9 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
               className="absolute h-max inset-y-[0] left-[2%] my-auto md:text-5xl text-[40px] text-white-A700 "
               size="txtPoppinsRegular64"
             >
-              Secure Bank
+              Secure Bank 
             </Text>
+            
             <button
               className="absolute bottom-[0] right-[14%] md:text-5xl text-[40px] text-white-A700 mb-[10px]"
               size="txtPoppinsRegular64"
@@ -95,6 +97,8 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
              Get Instant Help!
 
               </Text>
+              <p>User ID: {userID}</p>
+
             </div>
              
               </div>

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-
 import { Button, Img, Line, Text } from "components";
-import { useNavigate  } from "react-router-dom";
+import { useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 const LoginPage30Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate ();
+  // const history = useHistory();
   const handleSignupLogic = () => {
-    navigate("/SignupPage30")
+    navigate("/signuppage30")
   };
  
   const handleLoginLogic = async () => {
@@ -36,11 +37,17 @@ const LoginPage30Page = () => {
           console.log("responseData",responseData)
           if (responseData > 0) {
             // User logged in successfully, and responseData contains userID
+            const userID= responseData;
+            console.log('userID:', userID);
+            console.log('URL:', `/homepageeverydayaccount30webfeeling?userID=${userID}`);
             alert('Login successful');
-            const { userID } = responseData;
-  
+            
+
             // Now you can append the userID to request parameters or perform other actions
-            navigate(`/homepageeverydayaccount30webfeeling?userID=${userID}`);
+            // history.push(`/homepageeverydayaccount30webfeeling?userID=${userID}`);
+            window.location.href = `/homepageeverydayaccount30webfeeling?userID=${userID}`;
+            // navigate(`/homepageeverydayaccount30webfeeling?userID=${userID}`)
+
           } else {
             // Handle the case where the userID is missing in the response
             alert('Login successful, but userID is missing.');

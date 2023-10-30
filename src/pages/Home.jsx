@@ -21,7 +21,7 @@ const Home = () => {
           <Link to="/loginpage30error">LoginPage30Error</Link>
         </li> */}
         <li>
-          <Link to="/homepageeverydayaccount30webfeeling">
+          <Link to="/homepageeverydayaccount30webfeeling/${userID}">
             Home Page of Everyday Account
           </Link>
         </li>
