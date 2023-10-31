@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Img, Line, List, Text } from "components";
 
@@ -6,7 +6,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
   const navigate = useNavigate();
   const { userID } = useParams(); // Get the userID from the URL params
   const handlePayClick = () => {
-    navigate('/paysomeonebybankerrorfield30webfeeling');
+    navigate(`/paysomeonebybankerrorfield30webfeeling/${userID}`);
   }
   const handleTransactionHistoryClick = () => {
     navigate('/transactionhistory30webfeeling');
@@ -30,6 +30,33 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
     alert('user has been logged out')
     navigate('/loginpage30')
   }
+
+  const BalanceComponent = () => {
+    // State to store the user's balance
+    const [balance, setBalance] = useState(null);
+  
+    useEffect(() => {
+      // Define the URL for fetching the user's balance
+      const apiUrl = 'https://example.com/api/getBalance'; // Replace with your API endpoint
+  
+      // Make a fetch request to the API
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Assuming the API response contains the user's balance in the 'balance' field
+          setBalance(data.balance);
+        })
+        .catch((error) => {
+          console.error('Error fetching balance:', error);
+        });
+    }, []); // Empty dependency array means this effect runs once after component mounts
+  }
+  
   return (
     <>
       <div className="bg-white-A700 flex flex-col items-center justify-start mx-auto pb-[168px] w-full">
@@ -37,10 +64,15 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
           <div className="font-poppins md:h-24 h-[80px] md:px-5 relative w-full">
             <div className="absolute bg-light_blue-900 border border-black-900 border-solid flex flex-col inset-x-[0] items-end justify-end mx-auto p-1.5 shadow-bs top-[0] w-full">
               <div className="flex flex-col items-center justify-start mr-[11px] w-[5%] md:w-full">
-                <Img
+                {/* <Img
                   className="h-[61px] w-[50px]"
                   src="images/img_plus.svg"
                   alt="plus"
+                /> */}
+                 <Img
+                  className="h-[61px] w-[50px]"
+                  src="../../../images/img_plus.svg"
+                  alt="plus2"
                 />
               </div>
             </div>
@@ -74,7 +106,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
             onClick={handleChatbotClick}>
               <Img
                 className="h-[60px] md:h-auto sm:mt-0 mt-4 object-cover w-[60px]"
-                src="images/img_ai28146662.png"
+                src="../../../images/img_ai28146662.png"
                 alt="ai28146662"
               />
               <div>
@@ -97,7 +129,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
              Get Instant Help!
 
               </Text>
-              <p>User ID: {userID}</p>
+              {/* <p>User ID: {userID}</p> */}
 
             </div>
              
@@ -111,7 +143,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                   <div className="flex sm:flex-col flex-row gap-[0px] items-start justify-start w-full">
                     <Img
                       className="h-[50px] "
-                      src="images/img_iconwallet.svg"
+                      src="../../../images/img_iconwallet.svg"
                       alt="iconwallet"
                     />
                     <Text
@@ -138,7 +170,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
                       <Img
                         className="h-[50px] mt-3"
-                        src="images/img_iconuser.svg"
+                        src="../../../images/img_iconuser.svg"
                         alt="iconcards"
                       />
                       <Line className="bg-black-900 h-px mt-[13px] w-[75%]" />
@@ -217,7 +249,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
                       <Img
                         className="h-[80px] mt-5"
-                        src="images/img_iconcards.svg"
+                        src="../../../images/img_iconcards.svg"
                         alt="iconcards"
                       />
                       <Line className="bg-black-900 h-px mt-[13px] w-[75%]" />
@@ -234,7 +266,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
                       <Img
                         className="h-[80px] mt-5"
-                        src="images/img_iconmoneyrecive.svg"
+                        src="../../../images/img_iconmoneyrecive.svg"
                         alt="iconcards"
                       />
                       <Line className="bg-black-900 h-px mt-[13px] w-[75%]" />
@@ -308,7 +340,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
                       <Img
                         className="h-[80px] mt-5"
-                        src="images/img_iconchart3.svg"
+                        src="../../../images/img_iconchart3.svg"
                         alt="iconcards"
                       />
                       <Line className="bg-black-900 h-px mt-[13px] w-[75%]" />
@@ -326,7 +358,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-center mx-auto top-[0%] w-[70%]">
                       <Img
                         className="h-[80px] mt-5"
-                        src="images/img_iconwallet_light_blue_800.svg"
+                        src="../../../images/img_iconwallet_light_blue_800.svg"
                         alt="iconcards"
                       />
                       <Line className="bg-black-900 h-px mt-[13px] w-[75%]" />

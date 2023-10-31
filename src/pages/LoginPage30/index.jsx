@@ -45,8 +45,8 @@ const LoginPage30Page = () => {
 
             // Now you can append the userID to request parameters or perform other actions
             // history.push(`/homepageeverydayaccount30webfeeling?userID=${userID}`);
-            window.location.href = `/homepageeverydayaccount30webfeeling?userID=${userID}`;
-            // navigate(`/homepageeverydayaccount30webfeeling?userID=${userID}`)
+            // window.location.href = `/homepageeverydayaccount30webfeeling?userID=${userID}`;
+            navigate(`/homepageeverydayaccount30webfeeling/userID=${userID}`)
 
           } else {
             // Handle the case where the userID is missing in the response

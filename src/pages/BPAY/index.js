@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate  } from "react-router-dom";
+import { useNavigate, useParams  } from "react-router-dom";
 import { Img, Line, List, Text } from "components";
 
 const BPAY = () => {
   const navigate = useNavigate ();
+  const { userID } = useParams(); // Get the userID from the URL params
   const [billerCode, setBillerCode] = useState('');
   const [referenceNumber, setReferenceNumber] = useState('');
   const [nickname, setNickname] = useState('');
@@ -24,7 +25,7 @@ const BPAY = () => {
 
     try {
       // Send a POST request to the backend
-      const response = await fetch('http://localhost:3001/send-money', {
+      const response = await fetch(`http://localhost:8080//sys/user/payBill?${userID}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +41,7 @@ const BPAY = () => {
       if (response.status === 200) {
         // Handle successful login (e.g., redirect to a dashboard)
         alert("Money sent");
-        navigate("/homepageeverydayaccount30webfeeling");
+        navigate(`/homepageeverydayaccount30webfeeling/${userID}`)
       } else {
         // Handle login failure (e.g., show an error message)
         alert("Money not sent: error");
@@ -78,14 +79,14 @@ const BPAY = () => {
             </Text>
             <Img
               className="absolute h-[91px] inset-y-[0] my-auto right-[1%]"
-              src="images/img_iconsearch.svg"
+              src="../../../images/img_iconsearch.svg"
               alt="iconsearch"
             />
           </div>
           <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2380px] mt-2 mx-auto md:px-5 w-full">
             <Img
               className="h-[97px] md:mt-0 mt-[70px] ml-[25px]"
-              src="images/img_iconbacksquare.svg"
+              src="../../../images/img_iconbacksquare.svg"
               alt="iconbacksquare"
               onClick={handleBackButtonClick}
             />
@@ -94,7 +95,7 @@ const BPAY = () => {
              onClick={handleChatbotClick}>
               <Img
                 className="mt-[5px] mr-[70px] h-[90px] w-[90px]"
-                src="images/img_ai28146662.png"
+                src="../../../images/img_ai28146662.png"
                 alt="ai28146662"
               />
               <Text
@@ -115,12 +116,12 @@ const BPAY = () => {
           </div>
           <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2456px] mt-3.5 mx-auto md:px-5 w-full">
             <div className="flex flex-1 flex-col items-start justify-start w-full">
-              <Line className="bg-black-900_72 h-0.5 w-full" />
+              {/* <Line className="bg-black-900_72 h-0.5 w-full" /> */}
 
 
 
               <div className="flex md:flex-col flex-row md:gap-5 items-end justify-start md:ml-[0] ml-[41px] mt-0 w-[96%] md:w-full">
-                <div className="h-[20px] relative w-[13%] md:w-full">
+                {/* <div className="h-[20px] relative w-[13%] md:w-full">
                   <div className="absolute flex flex-col h-full inset-[0] items-center justify-center m-auto w-[99%]">
                     <div className="flex flex-col gap-[31px] items-start justify-start w-full">
                       <Text
@@ -128,7 +129,7 @@ const BPAY = () => {
                         size="txtPoppinsBold40"
                       >
                         My Favourites
-                      </Text>
+                      </Text> */}
                       {/* <div className="h-52 relative w-[96%]">
                         <div className="bg-light_blue-900 h-52 m-auto rounded-[138px] shadow-bs9 w-full"></div>
                         <Text
@@ -138,8 +139,8 @@ const BPAY = () => {
                           Daniel
                         </Text>
                       </div> */}
-                    </div>
-                  </div>
+                    {/* </div>
+                  </div> */}
                   {/* <div className="absolute h-[67px] right-[0] top-[19%] w-[27%]">
                     <div className="bg-white-A700 border-2 border-light_blue-900 border-solid h-[67px] m-auto rounded-[38px] shadow-bs9 w-full"></div>
                     <Img
@@ -148,7 +149,7 @@ const BPAY = () => {
                       alt="cancel66025211"
                     />
                   </div> */}
-                </div>
+                {/* </div> */}
                 {/* <List
                   className="sm:flex-col flex-row md:gap-10 gap-[169px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 md:ml-[0] ml-[209px] md:mt-0 mt-[0px] w-[54%] md:w-full"
                   orientation="horizontal"
@@ -212,8 +213,8 @@ const BPAY = () => {
                   {/* </div> */}
                 {/* </List> */}
                 <div className="h-[100px] md:ml-[0] ml-[169px] md:mt-0 mt-[0px] relative w-[18%] md:w-full">
-                  <div className="flex flex-col h-[90px] items-center justify-start m-auto w-full">
-                    <div className="flex flex-col gap-[22px] justify-start w-full">
+                  {/* <div className="flex flex-col h-[90px] items-center justify-start m-auto w-full">
+                    <div className="flex flex-col gap-[22px] justify-start w-full"> */}
                       {/* <Text
                         className="md:ml-[0] ml-[277px] sm:text-4xl md:text-[38px] text-[40px] text-black-900"
                         size="txtPoppinsMedium40"
@@ -229,8 +230,8 @@ const BPAY = () => {
                           Tania
                         </Text>
                       </div> */}
-                    </div>
-                  </div>
+                    {/* </div>
+                  </div> */}
                   {/* <div className="absolute h-[67px] right-[29%] top-[17%] w-[19%]">
                     <div className="bg-white-A700 border-2 border-light_blue-900 border-solid h-[67px] m-auto rounded-[38px] shadow-bs9 w-full"></div>
                     <Img
@@ -245,8 +246,8 @@ const BPAY = () => {
 
 
 
-
-              <Line className="bg-black-900_72 h-0.5 mt-[45px] w-full" />
+{/* 
+              <Line className="bg-black-900_72 h-0.5 mt-[45px] w-full" /> */}
               <div className="bg-white-A700_01 border border-light_blue-800 border-solid flex flex-col items-center justify-center md:ml-[0] ml-[330px] mt-[29px] p-[22px] sm:px-5 rounded-[30px] shadow-bs5 w-[57%] md:w-full">
                
                
@@ -260,7 +261,7 @@ const BPAY = () => {
                   /> */}
                    <Img
                   className="h-[179px] md:ml-[0] ml-[650px]"
-                  src="images/img_image5.png"
+                  src="../../../images/img_image5.png"
                   alt="imageFive"
                 />
                   <Text
@@ -292,8 +293,8 @@ const BPAY = () => {
                          <label className="radio-button-container">
                        <input type="radio" name="accountType" value="everyDay" 
                                 onChange={() => {
-                              navigate('/paysomeonebybankerrorfield30webfeeling'); 
-                             }} />
+                                  navigate(`/paysomeonebybankerrorfield30webfeeling/${userID}`); 
+                                }} />
                         <div className="radio-button ">
                        </div>
                      </label>
@@ -307,13 +308,13 @@ const BPAY = () => {
                           className="mb-[9px] ml-3 sm:text-[31px] md:text-[33px] text-[28px] text-black-900 mr-2"
                           size="txtPoppinsBold35Black900"
                         >
-                          Transfer
+                          Pay ID
                         </Text>
                          <label className="radio-button-container">
                        <input type="radio" name="accountType" value="everyDay" 
                                 onChange={() => {
-                              navigate('/transfer'); 
-                             }} />
+                                  navigate(`/transfer/${userID}`); 
+                                }} />
                         <div className="radio-button ">
                        </div>
                      </label>
@@ -349,7 +350,7 @@ const BPAY = () => {
                      type="text" value={billerCode} onChange={(e) => setBillerCode(e.target.value)} placeholder='Enter Biller Code'/>
                       <Img
                         className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
-                        src="images/img_keyboard8419852.png"
+                        src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
                     </div>
@@ -361,7 +362,7 @@ const BPAY = () => {
                     type="text" value={referenceNumber} onChange={(e) => setReferenceNumber(e.target.value)} placeholder='Enter Reference Number' />
                       <Img
                         className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
-                        src="images/img_keyboard8419852.png"
+                        src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
                     </div>
@@ -411,14 +412,14 @@ const BPAY = () => {
                      items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                       <Img
                         className="h-[88px] md:mt-0 mt-[5px]"
-                        src="images/img_airplane.svg"
+                        src="../../../images/img_airplane.svg"
                         alt="airplane"
                       />
                     <input className="ml-[0px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
                       type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder='Enter Amount' />                     
                         <Img
                         className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
-                        src="images/img_keyboard8419852.png"
+                        src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
                     </div>
@@ -432,7 +433,7 @@ const BPAY = () => {
                       type="text" value={nickname} onChange={(e) => setNickname(e.target.value)} placeholder='Enter Nickname'/>                     
                        <Img
                         className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
-                        src="images/img_keyboard8419852.png"
+                        src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
                     </div>
@@ -449,11 +450,11 @@ const BPAY = () => {
                     </div> */}
                     <button
                       className="bg-light_blue-900 h-[89px] justify-center mt-[49px] pb-[7px] pt-[13px] sm:px-5 px-[35px] rounded-[44px] sm:text-[35px] md:text-[41px] text-[45px] text-center text-white-A700 w-[558px]"
-                      // onClick={handleSubmit}
-                      onClick={()=> {
-                        alert('Sending money API will take data to backend')
-                        navigate('/homepageeverydayaccount30webfeeling')
-                      }}
+                      onClick={handleSubmit}
+                      // onClick={()=> {
+                      //   alert('Sending money API will take data to backend')
+                      //   navigate('/homepageeverydayaccount30webfeeling')
+                      // }}
                       >
                      Send Money
                     </button>

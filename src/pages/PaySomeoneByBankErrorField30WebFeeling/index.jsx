@@ -1,47 +1,43 @@
 import React, { useState } from 'react';
-import { useNavigate  } from "react-router-dom";
+import { useNavigate, useParams  } from "react-router-dom";
 import { Img, Line, List, Text } from "components";
 
 const PaySomeoneByBankErrorField30WebFeelingPage = () => {
   const navigate = useNavigate ();
-  const [bsb, setBsb] = useState('');
-  const [accountNumber, setAccountNumber] = useState('');
+  const { userID } = useParams(); // Get the userID from the URL params
+  const [bsbNumber, setBsb] = useState('');
+  const [destAcc, setDestAcc] = useState('');
  // const [accountName, setAccountName] = useState('');
   const [amount, setAmount] = useState('');
   const [reason, setReason] = useState('');
 
 
   const handleBackButtonClick = () => {
-    navigate('/homepageeverydayaccount30webfeeling')
+    navigate(`/homepageeverydayaccount30webfeeling/${userID}`)
   };
   const handleSubmit = async () => {
     // Create a data object to send to the server
     const data = {
-      bsb,
-      accountNumber,
-      amount,
-      reason,
+      bsbNumber: bsbNumber,
+      destAcc: destAcc,
+      amount: amount,
+      reason: reason
     };
 
     try {
       // Send a POST request to the backend
-      const response = await fetch('http://localhost:8080//sys/user/payByAccountNumber', {
+      const response = await fetch(`http://localhost:8080//sys/user/payByAccountNumber?${userID}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          bsb,
-          accountNumber,
-          amount,
-          reason
-        }),
+        body: JSON.stringify(data),
       });
 
       if (response.status === 200) {
         // Handle successful login (e.g., redirect to a dashboard)
         alert("Money sent");
-        navigate("/homepageeverydayaccount30webfeeling");
+        navigate(`/homepageeverydayaccount30webfeeling/${userID}`);
       } else {
         // Handle login failure (e.g., show an error message)
         alert("Money not sent: error");
@@ -83,7 +79,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
             </Text>
             <Img
               className="absolute h-[91px] inset-y-[0] my-auto right-[1%]"
-              src="images/img_iconsearch.svg"
+              src="../../../images/img_iconsearch.svg"
               alt="iconsearch"
             />
           </div>
@@ -94,7 +90,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
           <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2380px] mt-2 mx-auto md:px-5 w-full">
             <Img
               className="h-[97px] md:mt-0 mt-[70px] ml-[25px]"
-              src="images/img_iconbacksquare.svg"
+              src="../../../images/img_iconbacksquare.svg"
               alt="iconbacksquare"
               onClick={handleBackButtonClick}
             />
@@ -103,7 +99,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
              onClick={handleChatbotClick}>
               <Img
                 className="mt-[5px] mr-[70px] h-[90px] w-[90px]"
-                src="images/img_ai28146662.png"
+                src="../../../images/img_ai28146662.png"
                 alt="ai28146662"
               />
               <Text
@@ -123,12 +119,12 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
           </div>
           <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2456px] mt-3.5 mx-auto md:px-5 w-full">
             <div className="flex flex-1 flex-col items-start justify-start w-full">
-              <Line className="bg-black-900_72 h-0.5 w-full" />
+               {/* <Line className="bg-black-900_72 h-0.5 w-full" /> */}
 
 
 
               <div className="flex md:flex-col flex-row md:gap-5 items-end justify-start md:ml-[0] ml-[41px] mt-0 w-[96%] md:w-full">
-                <div className="h-[20px] relative w-[13%] md:w-full">
+                {/*<div className="h-[20px] relative w-[13%] md:w-full">
                   <div className="absolute flex flex-col h-full inset-[0] items-center justify-center m-auto w-[99%]">
                     <div className="flex flex-col gap-[31px] items-start justify-start w-full">
                       <Text
@@ -136,7 +132,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                         size="txtPoppinsBold40"
                       >
                         My Favourites
-                      </Text>
+                      </Text> */}
                       {/* <div className="h-52 relative w-[96%]">
                         <div className="bg-light_blue-900 h-52 m-auto rounded-[138px] shadow-bs9 w-full"></div>
                         <Text
@@ -146,8 +142,8 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                           Daniel
                         </Text>
                       </div> */}
-                    </div>
-                  </div>
+                    {/* </div>
+                  </div> */}
                   {/* <div className="absolute h-[67px] right-[0] top-[19%] w-[27%]">
                     <div className="bg-white-A700 border-2 border-light_blue-900 border-solid h-[67px] m-auto rounded-[38px] shadow-bs9 w-full"></div>
                     <Img
@@ -156,7 +152,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                       alt="cancel66025211"
                     />
                   </div> */}
-                </div>
+                {/* </div> */}
                 {/* <List
                   className="sm:flex-col flex-row md:gap-10 gap-[169px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 md:ml-[0] ml-[209px] md:mt-0 mt-[0px] w-[54%] md:w-full"
                   orientation="horizontal"
@@ -267,7 +263,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                   <div className='items-center justify-center mr-[620px]'>
                   <Img
                     className="h-[179px] md:ml-[0] ml-[650px]"
-                    src="images/img_iconmoneyrecive.svg"
+                    src="../../../images/img_iconmoneyrecive.svg"
                     alt="iconmoneyrecive"
                   />
                   <Text
@@ -317,12 +313,12 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                           className="mb-[9px] ml-3 sm:text-[31px] md:text-[33px] text-[28px] text-black-900 mr-2"
                           size="txtPoppinsBold35Black900"
                         >
-                          Transfer
+                          Pay ID
                         </Text>
                          <label className="radio-button-container">
                        <input type="radio" name="accountType" value="everyDay" 
                                 onChange={() => {
-                              navigate('/transfer'); 
+                              navigate(`/transfer/${userID}`); 
                              }} />
                         <div className="radio-button ">
                        </div>
@@ -343,7 +339,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                          <label className="radio-button-container">
                        <input type="radio" name="accountType" value="everyDay" 
                                 onChange={() => {
-                              navigate('/bpay'); 
+                              navigate(`/bpay/${userID}`); 
                              }} />
                         <div className="radio-button ">
                        </div>
@@ -356,10 +352,10 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                     <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
                      items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                     <input className="ml-[47px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
-                     type="text" value={bsb} onChange={(e) => setBsb(e.target.value)} placeholder='BSB Number'/>
+                     type="text" value={bsbNumber} onChange={(e) => setBsb(e.target.value)} placeholder='BSB Number'/>
                       <Img
                         className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
-                        src="images/img_keyboard8419852.png"
+                        src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
                     </div>
@@ -368,10 +364,10 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                     <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
                      items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                     <input className="ml-[47px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
-                    type="text" value={accountNumber} onChange={(e) => setAccountNumber(e.target.value)} placeholder='Account Number' />
+                    type="text" value={destAcc} onChange={(e) => setDestAcc(e.target.value)} placeholder='Account Number' />
                       <Img
                         className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
-                        src="images/img_keyboard8419852.png"
+                        src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
                     </div>
@@ -421,14 +417,14 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                      items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                       <Img
                         className="h-[88px] md:mt-0 mt-[5px]"
-                        src="images/img_airplane.svg"
+                        src="../../../images/img_airplane.svg"
                         alt="airplane"
                       />
                     <input className="ml-[0px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
                       type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder='Amount' />                     
                         <Img
                         className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
-                        src="images/img_keyboard8419852.png"
+                        src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
                     </div>
@@ -442,11 +438,11 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                     </div>
                     <button
                       className="bg-light_blue-900 h-[89px] justify-center mt-[49px] pb-[7px] pt-[13px] sm:px-5 px-[35px] rounded-[44px] sm:text-[35px] md:text-[41px] text-[45px] text-center text-white-A700 w-[558px]"
-                      // onClick={handleSubmit}
-                      onClick={()=> {
-                        alert('Sending money API will take data to backend')
-                        navigate('/homepageeverydayaccount30webfeeling')
-                      }}
+                       onClick={handleSubmit}
+                      // onClick={()=> {
+                      //   alert('Sending money API will take data to backend')
+                      //   navigate('/homepageeverydayaccount30webfeeling')
+                      // }}
                       >
                      Send Money
                     </button>

@@ -2,6 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
+import SignupPage30Page from "pages/SignupPage30";
+// import HomePageEveryDayAccount30WebFeelingPage from "pages/HomePageEveryDayAccount30WebFeeling";
+
+const HomePageEveryDayAccount30WebFeeling = React.lazy(() =>
+  import("pages/HomePageEveryDayAccount30WebFeeling"),
+);
 const ViewProfile30WebFeeling = React.lazy(() =>
   import("pages/ViewProfile30WebFeeling"),
 );
@@ -57,13 +63,6 @@ const HomePageSavingsAccount30WebFeeling = React.lazy(() =>
   import("pages/HomePageSavingsAccount30WebFeeling"),
 );
 
-
-const HomePageEveryDayAccount30WebFeeling = React.lazy(() =>
-  import("pages/HomePageEveryDayAccount30WebFeeling"),
-);
-
-
-
 const LoginPage30Error = React.lazy(() => import("pages/LoginPage30Error"));
 const LoginPagereCaptcha30 = React.lazy(() =>
   import("pages/LoginPagereCaptcha30"),
@@ -76,7 +75,7 @@ const LoginPage30 = React.lazy(() => import("pages/LoginPage30"));
 const SignupPayIDCheckedPage30 = React.lazy(() =>
   import("pages/SignupPayIDCheckedPage30"),
 );
-const SignupPage30 = React.lazy(() => import("pages/SignupPage30"));
+// const SignupPage30 = React.lazy(() => import("pages/SignupPage30"));
 const BPAY = React.lazy(() => import("pages/BPAY"));
 const Transfer = React.lazy(() => import("pages/Transfer"));
 const TransferForSavings = React.lazy(() => import("pages/TransferForSavings"));
@@ -89,14 +88,14 @@ const ProjectRoutes = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/signuppage30" element={<SignupPage30 />} />
+          <Route path="/signuppage30" element={<SignupPage30Page />} />
           <Route
             path="/signuppayidcheckedpage30"
             element={<SignupPayIDCheckedPage30 />}
           />
           <Route path="/loginpage30" element={<LoginPage30 />} />
-          <Route path="/bpay" element={<BPAY />} />
-          <Route path="/transfer" element={<Transfer />} />
+          <Route path="/bpay/:userID" element={<BPAY />} />
+          <Route path="/transfer/:userID" element={<Transfer />} />
           <Route path="/transferForSavings" element={<TransferForSavings />} />
           <Route
             path="/loginpagerecaptcha30"
@@ -144,7 +143,7 @@ const ProjectRoutes = () => {
             element={<PaySomeoneByBankRecentTransaction30WebFeeling />}
           />
           <Route
-            path="/paysomeonebybankerrorfield30webfeeling"
+            path="/paysomeonebybankerrorfield30webfeeling/:userID"
             element={<PaySomeoneByBankErrorField30WebFeeling />}
           />
           <Route

@@ -1,9 +1,11 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Img, Line, List, Text } from "components";
 
 const HomePageEveryDayAccount30WebFeelingPage = () => {
   const navigate = useNavigate();
+  const { userID } = useParams(); // Get the userID from the URL params
+
   const handlePayClick = () => {
     navigate('/transferForSavings');
   }
