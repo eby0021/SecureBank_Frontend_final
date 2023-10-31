@@ -12,7 +12,7 @@ const BPAY = () => {
 
 
   const handleBackButtonClick = () => {
-    navigate('/homepageeverydayaccount30webfeeling')
+    navigate(`/homepageeverydayaccount30webfeeling/${userID}`)
   };
   const handleSubmit = async () => {
     // Create a data object to send to the server
@@ -62,27 +62,45 @@ const BPAY = () => {
     <>
       <div className="bg-white-A700 flex flex-col items-center justify-start  pb-[52px] w-full">
         <div className="flex flex-col justify-start w-full">
-          <div className="font-poppins md:h-24 h-[99px] md:px-5 relative w-full">
-            <div className="absolute bg-light_blue-900 border border-black-900 border-solid h-[95px] inset-x-[0] mx-auto shadow-bs top-[0] w-full"></div>
+
+
+
+  
+        <div className="font-poppins md:h-24 h-[80px] md:px-5 relative w-full">
+            <div className="absolute bg-light_blue-900 border border-black-900 border-solid flex flex-col inset-x-[0] items-end justify-end mx-auto p-1.5 shadow-bs top-[0] w-full">
+              <div className="flex flex-col items-center justify-start mr-[11px] w-[5%] md:w-full">
+                {/* <Img
+                  className="h-[61px] w-[50px]"
+                  src="images/img_plus.svg"
+                  alt="plus"
+                /> */}
+                 <Img
+                  className="h-[61px] w-[50px]"
+                  src="../../../images/img_plus.svg"
+                  alt="plus2"
+                />
+              </div>
+            </div>
             <Text
-              className="absolute h-max inset-y-[0] left-[2%] my-auto md:text-5xl text-[64px] text-white-A700"
+              className="absolute h-max inset-y-[0] left-[2%] my-auto md:text-5xl text-[40px] text-white-A700 "
               size="txtPoppinsRegular64"
             >
-              Secure Bank
+              Secure Bank 
             </Text>
-            <Text
-              className="absolute right-[16%] md:text-5xl text-[64px] text-white-A700 top-[0]"
+            
+            <button
+              className="absolute bottom-[0] right-[14%] md:text-5xl text-[40px] text-white-A700 mb-[10px]"
               size="txtPoppinsRegular64"
               onClick={handleLogoutClick}
             >
               Logout
-            </Text>
-            <Img
-              className="absolute h-[91px] inset-y-[0] my-auto right-[1%]"
-              src="../../../images/img_iconsearch.svg"
-              alt="iconsearch"
-            />
+            </button>
           </div>
+
+
+
+
+
           <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2380px] mt-2 mx-auto md:px-5 w-full">
             <Img
               className="h-[97px] md:mt-0 mt-[70px] ml-[25px]"

@@ -1,10 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Img, Line, List, Text } from "components";
-
 const HomePageEveryDayAccount30WebFeelingPage = () => {
   const navigate = useNavigate();
   const { userID } = useParams(); // Get the userID from the URL params
+  const [balance, setBalance] = useState(null);
+  
+    useEffect(() => {
+      const apiUrl = `http://localhost:8080/sys/user/getAccountMoney?${userID}`;
+  
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setBalance(data);
+        })
+        .catch((error) => {
+          console.error('Error fetching balance:', error);
+        });
+    }, []);
+
   const handlePayClick = () => {
     navigate(`/paysomeonebybankerrorfield30webfeeling/${userID}`);
   }
@@ -31,36 +50,13 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
     navigate('/loginpage30')
   }
 
-  const BalanceComponent = () => {
-    // State to store the user's balance
-    const [balance, setBalance] = useState(null);
-  
-    useEffect(() => {
-      // Define the URL for fetching the user's balance
-      const apiUrl = 'https://example.com/api/getBalance'; // Replace with your API endpoint
-  
-      // Make a fetch request to the API
-      fetch(apiUrl)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          // Assuming the API response contains the user's balance in the 'balance' field
-          setBalance(data.balance);
-        })
-        .catch((error) => {
-          console.error('Error fetching balance:', error);
-        });
-    }, []); // Empty dependency array means this effect runs once after component mounts
-  }
-  
   return (
     <>
       <div className="bg-white-A700 flex flex-col items-center justify-start mx-auto pb-[168px] w-full">
         <div className="flex flex-col items-center justify-start w-full">
+         
+         
+         
           <div className="font-poppins md:h-24 h-[80px] md:px-5 relative w-full">
             <div className="absolute bg-light_blue-900 border border-black-900 border-solid flex flex-col inset-x-[0] items-end justify-end mx-auto p-1.5 shadow-bs top-[0] w-full">
               <div className="flex flex-col items-center justify-start mr-[11px] w-[5%] md:w-full">
@@ -96,13 +92,18 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
 
 
 
+
+
+
+
           <div className="flex md:flex-col flex-row font-poppins md:gap-10 gap-10 items-center justify-start 
           my-[0px] max-w-[2228px] mt-2.5 mx-auto md:px-5 w-[90%] h-[150px]">
            
            
-            <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid flex md:flex-1 sm:flex-col 
+            <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid flex md:flex-1 
+            sm:flex-col 
             flex-row sm:gap-5 items-start justify-end 
-            mb-[10px] md:mt-0 mt-[12px] p-2.5 rounded-[50px] shadow-bs3 w-[40%] md:w-full my-[0px]"
+            mb-[10px] md:mt-0 mt-[12px] px-[20px] py-[10px] rounded-[50px] shadow-bs3 w-[50%] md:w-full my-[0px]"
             onClick={handleChatbotClick}>
               <Img
                 className="h-[60px] md:h-auto sm:mt-0 mt-4 object-cover w-[60px]"
@@ -111,7 +112,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
               />
               <div>
               <Text
-                className="sm:mt-0  sm:text-4xl md:text-[25px] text-[16px] text-black-900 text-center text-shadow-ts"
+                className="sm:mt-0  sm:text-4xl md:text-[25px] text-[20px] text-black-900 text-center text-shadow-ts"
                 size="txtPoppinsBold40"
               >
                 <>
@@ -121,17 +122,8 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                   <br />
                 </>
               </Text>
-              <div>
-            <Text
-                className="sm:mt-0  sm:text-4xl md:text-[25px] text-[16px] text-black-900 text-center text-shadow-ts"
-                size="txtPoppinsBold40"
-              >
-             Get Instant Help!
-
-              </Text>
-              {/* <p>User ID: {userID}</p> */}
-
-            </div>
+            
+            
              
               </div>
 
@@ -146,18 +138,13 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                       src="../../../images/img_iconwallet.svg"
                       alt="iconwallet"
                     />
-                    <Text
-                      className="sm:mt-0 mt-[19px] ml-[10px] sm:text-[40px] md:text-[30px] text-[18px] text-center text-light_blue-900"
-                      size="txtPoppinsSemiBold50"
-                    >
-                      Current Balance
-                    </Text>
+
                   </div>
                   <Text
-                    className="md:ml-[0] ml-[50px] md:text-5xl text-[25px] text-center text-light_blue-900"
+                    className="md:ml-[0] ml-[50px] md:text-5xl text-[20px] text-center text-light_blue-900"
                     size="txtPoppinsSemiBold100"
-                  >
-                    $2,198
+                  >  Balance:
+                     {balance !== null ? `$${balance}` : 'Loading balance...'}
                   </Text>
                 </div>
               </div>
@@ -411,7 +398,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                   <div className="h-[508px] relative w-[28%] md:w-full">
                     <div className="bg-white-A700 h-[508px] m-auto rounded-[295px] shadow-bs7 w-full"></div>
                     <div className="absolute flex flex-col inset-x-[0] justify-start mx-auto top-[4%] w-4/5">
-                      <Img
+                      <x
                         className="h-[269px] md:ml-[0] ml-[113px]"
                         src="images/img_iconuser.svg"
                         alt="iconuser"
