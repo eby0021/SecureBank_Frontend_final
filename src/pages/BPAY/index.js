@@ -103,21 +103,21 @@ const BPAY = () => {
 
           <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2380px] mt-2 mx-auto md:px-5 w-full">
             <Img
-              className="h-[97px] md:mt-0 mt-[70px] ml-[25px]"
+              className="h-[60px] md:mt-0 mt-[10px] ml-[35px]"
               src="../../../images/img_iconbacksquare.svg"
               alt="iconbacksquare"
               onClick={handleBackButtonClick}
             />
             <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid
-             flex md:ml-[0] ml-[250px] md:mt-0 mt-[27px] h-[200px] px-[60px] py-[40px] w-[25%] relative rounded-[50px] shadow-bs3 md:w-full ml-[400px]"
+             flex md:ml-[0] ml-[250px] md:mt-0 mt-[5px] h-[130px] px-[20px] py-[10px] w-[15%] relative rounded-[50px] shadow-bs3 md:w-full ml-[550px]"
              onClick={handleChatbotClick}>
               <Img
-                className="mt-[5px] mr-[70px] h-[90px] w-[90px]"
+                className="mt-[5px] mr-[50px] h-[70px] w-[70px]"
                 src="../../../images/img_ai28146662.png"
                 alt="ai28146662"
               />
               <Text
-                className="ml-[-25px] mr-[17px] mt-0.5 md:text-5xl text-[30px] text-black-900 text-center text-shadow-ts z-[1]"
+                className="ml-[-25px] mr-[17px] mt-0.5 md:text-5xl text-[20px] text-black-900 text-center text-shadow-ts z-[1]"
                 size="txtPoppinsBold70"
               >
                 <>
@@ -126,19 +126,21 @@ const BPAY = () => {
                 </>
               </Text>
             </div>
-            {/* <Img
-              className="md:flex-1 h-[130px] sm:h-auto mb-3 md:ml-[0] ml-[400px] object-cover rounded-[161px] w-[17%] md:w-full mt-[35px] mr-[30px]"
-              src="images/img_ellipse20_281x322.png"
-              alt="ellipseTwenty"
-            /> */}
           </div>
-          <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2456px] mt-3.5 mx-auto md:px-5 w-full">
+
+
+
+
+
+          <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start 
+          justify-start max-w-[2456px] mt-3.5 mx-auto md:px-5 w-full ">
             <div className="flex flex-1 flex-col items-start justify-start w-full">
-              {/* <Line className="bg-black-900_72 h-0.5 w-full" /> */}
+              <Line className="bg-black-900_72 h-0.5 w-full" />
 
 
-
-              <div className="flex md:flex-col flex-row md:gap-5 items-end justify-start md:ml-[0] ml-[41px] mt-0 w-[96%] md:w-full">
+{/* 
+              <div className="flex md:flex-col flex-row md:gap-5 items-end justify-start md:ml-[0] 
+              ml-[41px] mt-0 w-[96%] md:w-full "> */}
                 {/* <div className="h-[20px] relative w-[13%] md:w-full">
                   <div className="absolute flex flex-col h-full inset-[0] items-center justify-center m-auto w-[99%]">
                     <div className="flex flex-col gap-[31px] items-start justify-start w-full">
@@ -230,7 +232,7 @@ const BPAY = () => {
                     </div> */}
                   {/* </div> */}
                 {/* </List> */}
-                <div className="h-[100px] md:ml-[0] ml-[169px] md:mt-0 mt-[0px] relative w-[18%] md:w-full">
+                {/* <div className="h-[100px] md:ml-[0] ml-[169px] md:mt-0 mt-[0px] relative w-[18%] md:w-full"> */}
                   {/* <div className="flex flex-col h-[90px] items-center justify-start m-auto w-full">
                     <div className="flex flex-col gap-[22px] justify-start w-full"> */}
                       {/* <Text
@@ -258,8 +260,8 @@ const BPAY = () => {
                       alt="cancel66025215"
                     />
                   </div> */}
-                </div>
-              </div>
+                {/* </div>
+              </div> */}
 
 
 
@@ -278,32 +280,24 @@ const BPAY = () => {
                     alt="iconmoneyrecive"
                   /> */}
                    <Img
-                  className="h-[179px] md:ml-[0] ml-[650px]"
-                  src="../../../images/img_image5.png"
+                    className="h-[70px] md:ml-[0] ml-[670px]"
+                    src="../../../images/img_image5.png"
                   alt="imageFive"
                 />
                   <Text
-                    className="md:ml-[0] ml-[700px] mt-9 sm:text-[31px] md:text-[33px] text-[30px] text-black-900 justify-center items-center w-full px-5"
-                    size="txtPoppinsBold35Black900"
+                    className="md:ml-[0] ml-[670px] mt-3 sm:text-[11px] md:text-[13px] text-[22px] 
+                    text-black-900 justify-center items-center w-full px-5"
+                     size="txtPoppinsBold35Black900"
                   >
                     Pay
                   </Text>
                   </div>
                   <div className="flex flex-col items-center justify-center mt-[29px] w-full">
-
-
-
-
-
-                    <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full gap-6">
-
-
-
-
-
-                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid flex md:flex-1 flex-row items-center justify-between p-6 sm:px-5 rounded-[30px] w-[40%] md:w-full">
+                    <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full gap-6">                 
+                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid flex md:flex-1 
+                      flex-row items-center justify-between px-3 py-4 sm:px-5 rounded-[20px] w-[30%] md:w-full"> 
                         <Text
-                          className="mb-[9px] ml-11 sm:text-[31px] md:text-[33px] text-[28px] text-black-900"
+                          className="mb-[9px] ml-[35px] sm:text-[31px] md:text-[33px] text-[18px] text-black-900 mt-2"
                           size="txtPoppinsBold35Black900"
                         >
                           Pay Someone
@@ -321,9 +315,10 @@ const BPAY = () => {
 
 
 
-                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid flex md:flex-1 flex-row items-center justify-between p-6 sm:px-5 rounded-[30px] w-[25%] md:w-full">
+                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid flex md:flex-1 flex-row
+                       items-center justify-between px-3 py-4 sm:px-5 rounded-[20px] w-[30%] md:w-full">
                         <Text
-                          className="mb-[9px] ml-3 sm:text-[31px] md:text-[33px] text-[28px] text-black-900 mr-2"
+                          className="mb-[9px] ml-[65px] sm:text-[31px] md:text-[33px] text-[18px] text-black-900 mr-2 mt-2"
                           size="txtPoppinsBold35Black900"
                         >
                           Pay ID
@@ -342,9 +337,10 @@ const BPAY = () => {
 
 
                    
-                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid flex md:flex-1 flex-row items-center justify-between p-6 sm:px-5 rounded-[30px] w-[25%] md:w-full">
+                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid flex md:flex-1 flex-row
+                       items-center justify-between px-3 py-4 sm:px-5 rounded-[20px] w-[30%] md:w-full">
                         <Text
-                          className="mb-[9px] ml-11 sm:text-[31px] md:text-[33px] text-[28px] text-black-900"
+                          className="mb-[1px] ml-11 sm:text-[31px] md:text-[33px] text-[18px] text-black-900 mt-2"
                           size="txtPoppinsBold35Black900"
                         >
                           BPAY
@@ -363,23 +359,28 @@ const BPAY = () => {
                     </div>
                     {/* input fields start from here */}
                     <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
-                     items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
-                    <input className="ml-[47px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
-                     type="text" value={billerCode} onChange={(e) => setBillerCode(e.target.value)} placeholder='Enter Biller Code'/>
+                     items-center justify-between mt-[25px] p-[2px] rounded-tl-[10px] rounded-tr-[10px] w-full">
+                    <input 
+                      className="ml-[47px] sm:text-[11px] md:text-[13px] text-[15px] text-black-900 border-none
+                      outline-none"    
+                 type="text" value={billerCode} onChange={(e) => setBillerCode(e.target.value)} placeholder='Enter Biller Code'/>
                       <Img
-                        className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
+                        className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px] ml-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
                     </div>
 
 
-                    <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
-                     items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
-                    <input className="ml-[47px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
+                    <div
+                     className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
+                     items-center justify-between mt-[20px] p-[2px] rounded-tl-[10px] rounded-tr-[10px] w-full">
+                    <input 
+                      className="ml-[47px] sm:text-[11px] md:text-[13px] text-[15px] text-black-900 border-none
+                      outline-none"   
                     type="text" value={referenceNumber} onChange={(e) => setReferenceNumber(e.target.value)} placeholder='Enter Reference Number' />
                       <Img
-                        className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
+                        className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
@@ -426,17 +427,20 @@ const BPAY = () => {
                         alt="keyboard8419852_Three"
                       />
                     </div> */}
-                       <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
-                     items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
+                       <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex 
+                       flex-row md:gap-10
+                     items-center justify-start mt-[20px] p-[2px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                       <Img
-                        className="h-[88px] md:mt-0 mt-[5px]"
+                        className="h-[48px] md:mt-0 mt-[5px]"
                         src="../../../images/img_airplane.svg"
                         alt="airplane"
                       />
-                    <input className="ml-[0px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
+                    <input 
+                          className="ml-[47px] sm:text-[11px] md:text-[13px] text-[15px] text-black-900 border-none
+                          outline-none"   
                       type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder='Enter Amount' />                     
                         <Img
-                        className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
+                        className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px] ml-[400px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
@@ -446,11 +450,13 @@ const BPAY = () => {
 
 
                       <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
-                     items-center justify-between mt-[63px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
-                    <input className="ml-[47px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900 border-none outline-none"
-                      type="text" value={nickname} onChange={(e) => setNickname(e.target.value)} placeholder='Enter Nickname'/>                     
+                     items-center justify-between mt-[20px] p-[2px] rounded-tl-[10px] rounded-tr-[10px] w-full">
+                    <input
+                         className="ml-[47px] sm:text-[11px] md:text-[13px] text-[15px] text-black-900 border-none
+                           outline-none"    
+                         type="text" value={nickname} onChange={(e) => setNickname(e.target.value)} placeholder='Enter Nickname'/>                     
                        <Img
-                        className="h-[74px] md:h-auto mr-1.5 object-cover rounded-[10px]"
+                        className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
                       />
@@ -467,8 +473,10 @@ const BPAY = () => {
                     </select>
                     </div> */}
                     <button
-                      className="bg-light_blue-900 h-[89px] justify-center mt-[49px] pb-[7px] pt-[13px] sm:px-5 px-[35px] rounded-[44px] sm:text-[35px] md:text-[41px] text-[45px] text-center text-white-A700 w-[558px]"
-                      onClick={handleSubmit}
+                          className="bg-light_blue-900 h-[60px] justify-center mt-[29px] pb-[7px] pt-[13px] 
+                          sm:px-5 px-[35px] rounded-[44px] sm:text-[35px] md:text-[41px] text-[25px] text-center
+                            text-white-A700 w-[250px]"
+                        onClick={handleSubmit}
                       // onClick={()=> {
                       //   alert('Sending money API will take data to backend')
                       //   navigate('/homepageeverydayaccount30webfeeling')
@@ -481,11 +489,11 @@ const BPAY = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-700_01 h-[809px] mb-[787px] md:mt-0 mt-[262px] rounded-[10px] w-[1%]"></div>
+            <div className="bg-gray-700_01 h-[809px] mb-[4px] md:mt-0 mt-[0px] rounded-[10px] w-[1%]"></div>
           </div>
           <Line className="bg-black-900_72 h-0.5 mt-0 w-full" />
           <Text
-            className="md:ml-[0] ml-[220px] mt-[38px] text-4xl sm:text-[32px] md:text-[34px] text-black-900 text-center"
+            className="md:ml-[0] ml-[220px] mt-[12px] text-2xl sm:text-[32px] md:text-[34px] text-black-900 text-center"
             size="txtJostRomanRegular36"
           >
             Copyrights © 2023 Secure Bank All Rights Reserved

@@ -123,7 +123,7 @@ const ProjectRoutes = () => {
             element={<AddCard30ContinuedWebFeeling />}
           />
           <Route
-            path="/transactionhistory30webfeeling"
+            path="/transactionhistory30webfeeling/:userID"
             element={<TransactionHistory30WebFeeling />}
           />
           <Route
@@ -175,7 +175,7 @@ const ProjectRoutes = () => {
             element={<BillPaymentSuccessfulSuccessful30WebFeeling />}
           />
           <Route
-            path="/viewprofile30webfeeling"
+            path="/viewprofile30webfeeling/:userID"
             element={<ViewProfile30WebFeeling />}
           />
         </Routes>

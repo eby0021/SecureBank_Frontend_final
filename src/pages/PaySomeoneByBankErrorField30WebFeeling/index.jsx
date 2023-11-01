@@ -298,10 +298,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                   </Text>
                   </div> 
                   <div className="flex flex-col items-center justify-center mt-[29px] w-full">
-                    <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full gap-6">
-                     
-                     
-                     
+                    <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full gap-6">                 
                       <div className="bg-white-A700 border-2 border-light_blue-900 border-solid flex md:flex-1 
                       flex-row items-center justify-between px-3 py-4 sm:px-5 rounded-[20px] w-[30%] md:w-full">
                         <Text
@@ -368,7 +365,8 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                     {/* input fields start from here */}
                     <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
                      items-center justify-between mt-[23px] p-[2px] rounded-tl-[10px] rounded-tr-[10px] w-full">
-                    <input className="ml-[47px] sm:text-[11px] md:text-[13px] text-[15px] text-black-900 border-none
+                    <input 
+                    className="ml-[47px] sm:text-[11px] md:text-[13px] text-[15px] text-black-900 border-none
                      outline-none"
                      type="text" value={bsbNumber} onChange={(e) => setBsb(e.target.value)} placeholder='BSB Number'/>
                       <Img
@@ -379,7 +377,8 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                     </div>
 
 
-                    <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
+                    <div
+                     className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
                      items-center justify-between mt-[20px] p-[2px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                     <input className="ml-[47px] sm:text-[31px] md:text-[33px] text-[15px] text-black-900 border-none outline-none"
                     type="text" value={destAcc} onChange={(e) => setDestAcc(e.target.value)} placeholder='Account Number' />
@@ -478,7 +477,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
           </div>
           <Line className="bg-black-900_72 h-0.5 mt-0 w-full" />
           <Text
-            className="md:ml-[0] ml-[220px] mt-[12px] text-4xl sm:text-[32px] md:text-[34px] text-black-900 text-center"
+            className="md:ml-[0] ml-[220px] mt-[12px] text-2xl sm:text-[32px] md:text-[34px] text-black-900 text-center"
             size="txtJostRomanRegular36"
           >
             Copyrights © 2023 Secure Bank All Rights Reserved

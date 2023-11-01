@@ -5,7 +5,7 @@ import { Img, Line, List, Text } from "components";
 const Transfer = () => {
   const navigate = useNavigate ();
   const { userID } = useParams(); // Get the userID from the URL params
-  const [payID, setPayID] = useState('');
+  const [payId, setPayID] = useState('');
   const [amount, setAmount] = useState('');
 
 
@@ -15,7 +15,7 @@ const Transfer = () => {
   const handleSubmit = async () => {
     // Create a data object to send to the server
     const data = {
-      payID,
+      payId,
       amount,
     };
 
@@ -27,10 +27,7 @@ const Transfer = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          payID,
-          amount
-        }),
+        body: JSON.stringify(data),
       });
 
       if (response.status === 200) {
@@ -277,9 +274,9 @@ const Transfer = () => {
                     src="../../../images/img_airplane.svg"
                     alt="airplane"
                   />
-                  <Text
-                    className="md:ml-[0] ml-[670px] mt-9 sm:text-[31px] md:text-[33px] text-[22px]
-                     text-black-900 justify-center items-center w-full px-5"
+                 <Text
+                    className="md:ml-[0] ml-[670px] mt-3 sm:text-[11px] md:text-[13px] text-[22px] 
+                    text-black-900 justify-center items-center w-full px-5"
                     size="txtPoppinsBold35Black900"
                   >
                     Pay
@@ -387,7 +384,7 @@ const Transfer = () => {
 <div  className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
                      items-center justify-between mt-[20px] p-[2px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                     <input className="ml-[47px] sm:text-[31px] md:text-[33px] text-[18px] text-black-900 border-none outline-none"
-                    type="text" value={payID} onChange={(e) => setPayID(e.target.value)} placeholder='Pay ID' />
+                    type="text" value={payId} onChange={(e) => setPayID(e.target.value)} placeholder='Pay ID' />
                       <Img
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px]"
                         src="../../../images/img_keyboard8419852.png"
@@ -482,11 +479,12 @@ const Transfer = () => {
                     <button
                       className="bg-light_blue-900 h-[60px] justify-center mt-[29px] pb-[7px] pt-[13px] 
                       sm:px-5 px-[35px] rounded-[44px] sm:text-[35px] md:text-[41px] text-[25px] text-center
-                      text-white-A700 w-[250px]"                      // onClick={handleSubmit}
-                      onClick={()=> {
-                        alert('Sending money API will take data to backend')
-                        navigate('/homepageeverydayaccount30webfeeling')
-                      }}
+                      text-white-A700 w-[250px]"   
+                      onClick={handleSubmit}                   
+                      // onClick={()=> {
+                      //   alert('Sending money API will take data to backend')
+                      //   navigate('/homepageeverydayaccount30webfeeling')
+                      // }}
                       >
                      Send Money
                     </button>

@@ -1,14 +1,15 @@
 import {React, useState} from "react";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate, useParams  } from "react-router-dom";
 import { Button, Img, Line, List, Text } from "components";
 
 const ViewProfile30WebFeelingPage = () => {
   const navigate = useNavigate();
+  const { userID } = useParams(); // Get the userID from the URL params
   const handleChatbotClick = () => {
     navigate('/chatbotpage30webfeeling');
   }
   const handleBackButtonClick = () => {
-    navigate('/homepageeverydayaccount30webfeeling')
+    navigate(`/homepageeverydayaccount30webfeeling/${userID}`)
   };
   const handleLogoutClick = () => {
     alert('user has been logged out')
@@ -35,7 +36,7 @@ const ViewProfile30WebFeelingPage = () => {
                 </Text>
               <div className="flex flex-col items-center justify-start mt-[04px] h-full mb-0.5 mr-3.5 w-[2%] md:w-full">
                 <Img
-                  className="h-[50px]" src="images/img_plus.svg" alt="plus" 
+                  className="h-[50px]" src="../../../images/img_plus.svg" alt="plus" 
                 />
               </div>      
               </div>
@@ -147,12 +148,12 @@ const ViewProfile30WebFeelingPage = () => {
                     />
                     <Img
                       className="h-[24px] md:ml-[0] ml-[04px] md:mt-0 mt-[7px]"
-                      src="images/img_iconmessage.svg"
+                      src="../../../images/img_iconmessage.svg"
                       alt="iconmessage"
                     />
                     <Img
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="images/img_keyboard8419852.png"
+                      src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
                     />
                   </div>
@@ -162,28 +163,31 @@ const ViewProfile30WebFeelingPage = () => {
 
 
 
-                  <div className="bg-white-A700 border h-[50px] ml-[390px] w-[550px] mt-[07px] border-light_blue-900 
-                  border-solid flex md:flex-col flex-row md:gap-5 items-center justify-start px-0 rounded-tl-[2px] rounded-tr-[2px] ">
+                  <div className="bg-white-A700 border h-[50px] ml-[390px] w-[550px] mt-[07px] 
+                  border-light_blue-900 
+                  border-solid flex md:flex-col flex-row md:gap-5 items-center justify-start px-0 
+                  rounded-tl-[2px] rounded-tr-[2px] ">
                    <label className=" sm:text-[31px] md:text-[33px] text-[18px] w-[20%] ml-[24px]" 
                     size="txtJostRomanBold70"
                     >
                     Mobile Number
                    </label>
                     <input
-                      className="md:ml-[0] h-[30px] mb-[10px] md:mt-0 mt-[20px] sm:text-[31px] md:text-[33px] text-[18px] ml-[28px]
+                      className="md:ml-[0] h-[30px] mb-[10px] md:mt-0 mt-[20px] sm:text-[31px] md:text-[33px]
+                       text-[18px] ml-[28px] w-[400px]
                        text-black-900 border-none outline-none"
                       size="txtPoppinsSemiBold35"
                       type="text"
                       placeholder="040000000"
                     />
                     <Img
-                      className="h-[24px] md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[15px]"
-                      src="images/img_iconmessage.svg"
+                      className="h-[24px] md:ml-[0] ml-[04px] md:mt-0 mt-[7px]"
+                      src="../../../images/img_iconmessage.svg"
                       alt="iconmessage"
                     />
                     <Img
-                      className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[25px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="images/img_keyboard8419852.png"
+                      className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
+                      src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
                     />
                   </div>
@@ -208,12 +212,12 @@ const ViewProfile30WebFeelingPage = () => {
                     />
                     <Img
                       className="h-[24px] md:ml-[0] ml-[40px] md:mt-0 mb-[20px] mt-[15px]"
-                      src="images/img_iconmessage.svg"
+                      src="../../../images/img_iconmessage.svg"
                       alt="iconmessage"
                     />
                     <Img
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[25px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="images/img_keyboard8419852.png"
+                      src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
                     />
                   </div>
@@ -238,12 +242,12 @@ const ViewProfile30WebFeelingPage = () => {
                     />
                     <Img
                       className="h-[24px] md:ml-[0] ml-[70px] md:mt-0 mt-[7px]"
-                      src="images/img_iconmessage.svg"
+                      src="../../../images/img_iconmessage.svg"
                       alt="iconmessage"
                     />
                     <Img
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="images/img_keyboard8419852.png"
+                      src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
                     />
                   </div>
@@ -269,12 +273,12 @@ const ViewProfile30WebFeelingPage = () => {
                     />
                     <Img
                       className="h-[24px] md:ml-[0] ml-[70px] md:mt-0 mt-[7px]"
-                      src="images/img_iconmessage.svg"
+                      src="../../../images/img_iconmessage.svg"
                       alt="iconmessage"
                     />
                     <Img
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="images/img_keyboard8419852.png"
+                      src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
                     />
                   </div>
@@ -298,12 +302,12 @@ const ViewProfile30WebFeelingPage = () => {
                     />
                     <Img
                       className="h-[24px] md:ml-[0] ml-[70px] md:mt-0 mt-[7px]"
-                      src="images/img_iconmessage.svg"
+                      src="../../../images/img_iconmessage.svg"
                       alt="iconmessage"
                     />
                     <Img
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="images/img_keyboard8419852.png"
+                      src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
                     />
                   </div>
@@ -328,12 +332,12 @@ const ViewProfile30WebFeelingPage = () => {
                     />
                     <Img
                       className="h-[24px] md:ml-[0] ml-[70px] md:mt-0 mt-[7px]"
-                      src="images/img_iconmessage.svg"
+                      src="../../../images/img_iconmessage.svg"
                       alt="iconmessage"
                     />
                     <Img
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="images/img_keyboard8419852.png"
+                      src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
                     />
                   </div>
@@ -358,12 +362,12 @@ const ViewProfile30WebFeelingPage = () => {
                     />
                     <Img
                       className="h-[24px] md:ml-[0] ml-[70px] md:mt-0 mt-[7px]"
-                      src="images/img_iconmessage.svg"
+                      src="../../../images/img_iconmessage.svg"
                       alt="iconmessage"
                     />
                     <Img
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="images/img_keyboard8419852.png"
+                      src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
                     />
                   </div>

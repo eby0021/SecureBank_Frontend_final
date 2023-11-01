@@ -55,6 +55,12 @@ const SignupPage30Page = () => {
     return (
     <>
       <div className="bg-white-A700 flex flex-col items-center justify-start mx-auto pb-[66px] w-full">
+       
+       
+       
+       
+       
+       
         <div className="font-poppins md:h-[95px] h-[97px] md:px-5 relative w-full">
           <div className="bg-light_blue-900 border border-black-900 border-solid flex flex-col max-h-[50px] h-full items-end justify-start  p-0.5 shadow-bs w-full">
             <div className="flex flex-col items-center justify-start h-full mb-0.5 mr-3.5 w-[2%] md:w-full">
@@ -68,6 +74,11 @@ const SignupPage30Page = () => {
             Secure Bank
           </Text>
         </div>
+
+
+
+
+        
         <div className="bg-white-A700 flex flex-col font-poppins items-center justify-start max-w-[400px] max-h-[520px] mt-[0px] mx-auto p-[10px] md:px-5 rounded-[50px] shadow-bs1 w-[100%] ">
           <Img
             className="h-[65px] w-[65px]"

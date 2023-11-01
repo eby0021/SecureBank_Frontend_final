@@ -28,7 +28,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
     navigate(`/paysomeonebybankerrorfield30webfeeling/${userID}`);
   }
   const handleTransactionHistoryClick = () => {
-    navigate('/transactionhistory30webfeeling');
+    navigate(`/transactionhistory30webfeeling/${userID}`);
   }
   const handleCardClick = () => {
     navigate('/addcard30webfeeling');
@@ -37,7 +37,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
     navigate('/billpayment30webfeeling');
   }
   const handleViewProfileClick = () => {
-    navigate('/viewprofile30webfeeling');
+    navigate(`/viewprofile30webfeeling/${userID}`);
   }
   const handleTransactionAnalyticsClick = () => {
     navigate('/transactionanalytics30webfeeling');
