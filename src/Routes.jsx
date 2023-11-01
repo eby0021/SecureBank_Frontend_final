@@ -159,7 +159,7 @@ const ProjectRoutes = () => {
             element={<AddtoFavouritesContinued30WebFeeling />}
           />
           <Route
-            path="/transactionanalytics30webfeeling"
+            path="/transactionanalytics30webfeeling/:userID"
             element={<TransactionAnalytics30WebFeeling />}
           />
           <Route

@@ -40,7 +40,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
     navigate(`/viewprofile30webfeeling/${userID}`);
   }
   const handleTransactionAnalyticsClick = () => {
-    navigate('/transactionanalytics30webfeeling');
+    navigate(`/transactionanalytics30webfeeling/${userID}`);
   }
   const handleChatbotClick = () => {
     navigate('/chatbotpage30webfeeling');

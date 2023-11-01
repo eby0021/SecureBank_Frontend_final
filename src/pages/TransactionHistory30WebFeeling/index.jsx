@@ -7,6 +7,25 @@ import TransactionHistory from './TransactionHistory';
 const TransactionHistory30WebFeelingPage = () => {
   const { userID } = useParams(); // Get the userID from the URL params
   const [transactions, setTransactions] = useState([]);
+  const [balance, setBalance] = useState(null);
+
+  useEffect(() => {
+    const apiUrl = `http://localhost:8080/sys/user/getAccountMoney?${userID}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setBalance(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching balance:', error);
+      });
+  }, []);
   const navigate = useNavigate ();
   const handleChatbotClick = () => {
     navigate('/chatbotpage30webfeeling');
@@ -171,7 +190,8 @@ const TransactionHistory30WebFeelingPage = () => {
                       className="md:text-5xl text-[20px] text-center text-light_blue-900"
                       size="txtPoppinsSemiBold100"
                     >
-                      $2,198
+                      Balance:
+                     {balance !== null ? `$${balance}` : 'Loading balance...'}
                     </Text>
                   </div>
                 </div>
