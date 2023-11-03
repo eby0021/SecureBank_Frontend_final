@@ -93,174 +93,56 @@ const Transfer = () => {
 
 
 
-
-          <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2380px] mt-2 mx-auto md:px-5 w-full">
+          <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start
+           max-w-[2380px] mt-2 mx-auto md:px-5 w-full h-[115px]">
             <Img
               className="h-[60px] md:mt-0 mt-[10px] ml-[35px]"
               src="../../../images/img_iconbacksquare.svg"
               alt="iconbacksquare"
               onClick={handleBackButtonClick}
             />
-            <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid
-             flex md:ml-[0] ml-[250px] md:mt-0 mt-[5px] h-[130px] px-[20px] py-[10px] w-[15%] relative rounded-[50px] shadow-bs3 md:w-full ml-[550px]"
-             onClick={handleChatbotClick}>
+            <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid flex md:flex-1 
+            sm:flex-col ml-[600px]
+            flex-row sm:gap-5 items-center justify-center 
+            mb-[10px] md:mt-0 mt-[2px] px-[20px] py-[10px] rounded-[50px] shadow-bs3 w-[10%] md:w-full my-[0px] h-[140px]"
+            onClick={handleChatbotClick}>
               <Img
-                className="mt-[5px] mr-[50px] h-[70px] w-[70px]"
-                src="../../../images/img_ai28146662.png"
+                className="h-[110px] md:h-auto sm:mt-0  object-cover w-[100px] "
+                src="../../../images/girlChatbot.jpg"
                 alt="ai28146662"
               />
+             {/*  <div>
               <Text
-                className="ml-[-25px] mr-[17px] mt-0.5 md:text-5xl text-[20px] text-black-900 text-center text-shadow-ts z-[1]"
-                size="txtPoppinsBold70"
+                className="sm:mt-0  sm:text-4xl md:text-[25px] text-[20px] text-black-900 text-center text-shadow-ts"
+                size="txtPoppinsBold40"
               >
                 <>
                   Open <br />
                   Chat Bot
+                  <br />
+                  <br />
                 </>
-              </Text>
-            </div>
-          </div>
+              </Text> 
+            
+            
+             
+              </div> */}
 
+            </div>
+
+          </div>
 
 
 
           
           <div className="flex md:flex-col flex-row font-poppins md:gap-5 items-start justify-start max-w-[2456px] mt-3.5 mx-auto md:px-5 w-full">
             <div className="flex flex-1 flex-col items-start justify-start w-full">
-              <Line className="bg-black-900_72 h-0.5 w-full" />
+              <Line className="bg-black-900_72 h-0.5 w-full mt-[30px]" />
               
-              <div className="flex md:flex-col flex-row md:gap-5 items-end justify-start
-               md:ml-[0] ml-[41px] mt-0 w-[96%] md:w-full h-[30px]">   
-
-               <div className="h-[20px] relative w-[13%] md:w-full">
-                  <div className="absolute flex flex-col h-[5px] inset-[0] items-center justify-center
-                   m-auto w-[99%]">
-                    <div className="flex flex-col gap-[21px] items-center justify-center w-full">
-                      <Text
-                        className="sm:text-[12px] md:text-[18px] text-[22px] text-black-900"
-                        size="txtPoppinsBold40"
-                      >
-                        My Favourites
-                      </Text> 
-                      </div></div></div>
-                      {/* <div className="h-52 relative w-[96%]">
-                        <div className="bg-light_blue-900 h-52 m-auto rounded-[138px] shadow-bs9 w-full"></div>
-                        <Text
-                          className="absolute left-[22%] sm:text-4xl md:text-[38px] text-[40px] text-white-A700 top-[33%]"
-                          size="txtPoppinsSemiBold40WhiteA700"
-                        >
-                          Daniel
-                        </Text>
-                      </div> */}
-                    {/* </div>
-                  </div> */}
-                  {/* <div className="absolute h-[67px] right-[0] top-[19%] w-[27%]">
-                    <div className="bg-white-A700 border-2 border-light_blue-900 border-solid h-[67px] m-auto rounded-[38px] shadow-bs9 w-full"></div>
-                    <Img
-                      className="absolute h-[62px] inset-[0] justify-center m-auto object-cover w-[93%]"
-                      src="images/img_cancel6602521.png"
-                      alt="cancel66025211"
-                    />
-                  </div> */}
-                {/* </div> */}
-                {/* <List
-                  className="sm:flex-col flex-row md:gap-10 gap-[169px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 md:ml-[0] ml-[209px] md:mt-0 mt-[0px] w-[54%] md:w-full"
-                  orientation="horizontal"
-                > */}
-                  {/* <div className="md:h-52 h-[242px] relative w-full">
-                    <div className="absolute bottom-[0] h-52 left-[0] w-[95%]">
-                      <div className="bg-light_blue-900 h-52 m-auto rounded-[138px] shadow-bs9 w-full"></div>
-                      <Text
-                        className="absolute h-max inset-[0] justify-center m-auto sm:text-4xl md:text-[38px] text-[40px] text-white-A700 w-max"
-                        size="txtPoppinsSemiBold40WhiteA700"
-                      >
-                        Sajid
-                      </Text>
-                    </div>
-                    <div className="absolute h-[67px] right-[0] top-[0] w-[27%]">
-                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid h-[67px] m-auto rounded-[38px] shadow-bs9 w-full"></div>
-                      <Img
-                        className="absolute h-[62px] inset-[0] justify-center m-auto object-cover w-[93%]"
-                        src="images/img_cancel6602521.png"
-                        alt="cancel66025212"
-                      />
-                    </div>
-                  </div> */}
-                  {/* <div className="md:h-52 h-[242px] relative w-full"> */}
-                    {/* <div className="absolute bottom-[0] h-52 left-[0] w-[96%]">
-                      <div className="bg-light_blue-900 h-52 m-auto rounded-[138px] shadow-bs9 w-full"></div>
-                      <Text
-                        className="absolute h-max inset-[0] justify-center m-auto sm:text-4xl md:text-[38px] text-[40px] text-white-A700 w-max"
-                        size="txtPoppinsSemiBold40WhiteA700"
-                      >
-                        Peter
-                      </Text>
-                    </div> */}
-                    {/* <div className="absolute h-[67px] right-[0] top-[0] w-[27%]">
-                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid h-[67px] m-auto rounded-[38px] shadow-bs9 w-full"></div>
-                      <Img
-                        className="absolute h-[62px] inset-[0] justify-center m-auto object-cover w-[93%]"
-                        src="images/img_cancel6602521.png"
-                        alt="cancel66025213"
-                      />
-                    </div>
-                  </div> */}
-                  {/* <div className="md:h-52 h-[100px] relative w-full"> */}
-                    {/* <div className="absolute bottom-[0] h-52 left-[0] w-[95%]">
-                      <div className="bg-light_blue-900 h-52 m-auto rounded-[138px] shadow-bs9 w-full"></div>
-                      <Text
-                        className="absolute inset-x-[0] mx-auto sm:text-4xl md:text-[38px] text-[40px] text-white-A700 top-[33%] w-max"
-                        size="txtPoppinsSemiBold40WhiteA700"
-                      >
-                        Olivia
-                      </Text>
-                    </div> */}
-                    {/* <div className="absolute h-[67px] right-[0] top-[0] w-[27%]">
-                      <div className="bg-white-A700 border-2 border-light_blue-900 border-solid h-[67px] m-auto rounded-[38px] shadow-bs9 w-full"></div>
-                      <Img
-                        className="absolute h-[62px] inset-[0] justify-center m-auto object-cover w-[93%]"
-                        src="images/img_cancel6602521.png"
-                        alt="cancel66025214"
-                      />
-                    </div> */}
-                  {/* </div> */}
-                {/* </List> */}
-                <div className="h-[100px] md:ml-[0] ml-[169px] md:mt-0 mt-[0px] relative w-[18%] md:w-full">
-                  <div className="flex flex-col h-[90px] items-center justify-start m-auto w-full">
-                    <div className="flex flex-col gap-[22px] justify-start w-full">
-                      {/* <Text
-                        className="md:ml-[0] ml-[277px] sm:text-4xl md:text-[38px] text-[40px] text-black-900"
-                        size="txtPoppinsMedium40"
-                      >
-                        See All
-                      </Text> */}
-                      {/* <div className="h-52 mr-[135px] relative w-[68%]">
-                        <div className="bg-light_blue-900 h-52 m-auto rounded-[138px] shadow-bs9 w-full"></div>
-                        <Text
-                          className="absolute inset-x-[0] mx-auto sm:text-4xl md:text-[38px] text-[40px] text-white-A700 top-[33%] w-max"
-                          size="txtPoppinsSemiBold40WhiteA700"
-                        >
-                          Tania
-                        </Text>
-                      </div> */}
-                    </div>
-                  </div>
-                  {/* <div className="absolute h-[67px] right-[29%] top-[17%] w-[19%]">
-                    <div className="bg-white-A700 border-2 border-light_blue-900 border-solid h-[67px] m-auto rounded-[38px] shadow-bs9 w-full"></div>
-                    <Img
-                      className="absolute h-[62px] inset-[0] justify-center m-auto object-cover w-[93%]"
-                      src="images/img_cancel6602521.png"
-                      alt="cancel66025215"
-                    />
-                  </div> */}
-                </div>
-              </div>
+              
 
 
-
-
-
-              <Line className="bg-black-900_72 h-0.5 mt-[45px] w-full" />
+              {/* <Line className="bg-black-900_72 h-0.5 mt-[45px] w-full" /> */}
               <div className="bg-white-A700_01 border border-light_blue-800 border-solid flex flex-col 
               items-center justify-center md:ml-[0] ml-[330px] mt-[29px] p-[22px] sm:px-5 rounded-[30px]
                shadow-bs5 w-[57%] md:w-full">             

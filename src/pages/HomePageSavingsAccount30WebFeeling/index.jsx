@@ -124,7 +124,8 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
             </div>
           </div>
           <Line className="bg-black-900_72 h-0.5 max-w-[2144px] mt-[20px] mx-auto w-full" />
-          <div className="flex md:flex-col flex-row font-poppins md:gap-10 items-center justify-center max-w-[2291px] mt-0 mx-auto md:px-5 w-full">
+          <div className="flex md:flex-col flex-row font-poppins md:gap-10 items-center justify-center 
+          max-w-[2291px] mt-0 mx-auto md:px-5 w-full">
             <div className="flex flex-col md:gap-10 gap-[171px] items-center justify-start md:mt-0 mt-[30px]">
               {/* <div className="flex md:flex-col flex-row gap-[22px] items-start justify-start w-[100%] md:w-full"> */}
 
@@ -356,10 +357,10 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
           </div>
           <Line className="bg-black-900_72 h-0.5 mt-[63px] w-full" />
           <Text
-            className="mt-[63px] text-4xl sm:text-[32px] md:text-[34px] text-black-900 text-center"
+            className="mt-[63px] text-[30px] sm:text-[32px] md:text-[34px] text-black-900 text-center"
             size="txtJostRomanRegular36"
           >
-            Copyrights © 2023 Secure Bank All Rights Reserved
+            Copyrights © 2024 Secure Bank All Rights Reserved
           </Text>
         </div>
       </div>

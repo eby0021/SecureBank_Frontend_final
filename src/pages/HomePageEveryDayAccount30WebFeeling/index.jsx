@@ -102,15 +102,15 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
            
             <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid flex md:flex-1 
             sm:flex-col 
-            flex-row sm:gap-5 items-start justify-end 
-            mb-[10px] md:mt-0 mt-[12px] px-[20px] py-[10px] rounded-[50px] shadow-bs3 w-[50%] md:w-full my-[0px]"
+            flex-row sm:gap-5 items-center justify-center 
+            mb-[10px] md:mt-0 mt-[12px] px-[20px] py-[10px] rounded-[50px] shadow-bs3 w-[50%] md:w-full my-[0px] h-[170px]"
             onClick={handleChatbotClick}>
               <Img
-                className="h-[60px] md:h-auto sm:mt-0 mt-4 object-cover w-[60px]"
-                src="../../../images/img_ai28146662.png"
+                className="h-[130px] md:h-auto sm:mt-0  object-cover w-[120px] "
+                src="../../../images/girlChatbot.jpg"
                 alt="ai28146662"
               />
-              <div>
+             {/*  <div>
               <Text
                 className="sm:mt-0  sm:text-4xl md:text-[25px] text-[20px] text-black-900 text-center text-shadow-ts"
                 size="txtPoppinsBold40"
@@ -121,11 +121,11 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                   <br />
                   <br />
                 </>
-              </Text>
+              </Text> 
             
             
              
-              </div>
+              </div> */}
 
             </div>
             
@@ -228,12 +228,12 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                 className="flex flex-col font-jost gap-[16px] items-center w-full"
                 orientation="vertical"
               >
-                <div className="flex flex-1 md:flex-col flex-row md:gap-2 items-start justify-start w-full mx-0">
+                <div className="flex flex-1 md:flex-col flex-row md:gap-2 items-start justify-between w-full mx-0">
 
 
-                  <div className="h-[190px] relative w-[100%] md:w-full ml-[40px]"   onClick={handleCardClick}>
+                  <div className="h-[190px] relative w-[100%] md:w-full ml-[0px]"   onClick={handleCardClick}>
                     <div className="bg-white-A700 h-[190px]  rounded-[600px] shadow-bs7 w-[190px]"></div>
-                    <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
+                    <div className="absolute mr-[30px] flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
                       <Img
                         className="h-[80px] mt-5"
                         src="../../../images/img_iconcards.svg"
@@ -248,7 +248,10 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                       </Text>
                     </div>
                   </div>
-                  <div className="h-[190px] relative w-[100%] md:w-full mx-10 ml-[80px]" onClick={handlePayClick} >
+
+
+
+                  <div className="h-[190px] relative w-[100%] md:w-full mx-10 ml-[260px]" onClick={handlePayClick} >
                     <div className="bg-white-A700 h-[190px] m-auto rounded-[600px] shadow-bs7 w-[190px]"></div>
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
                       <Img
@@ -304,7 +307,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                   </div> */}
                 </div>
 
-                <div className="flex flex-1 md:flex-col flex-row md:gap-2 items-center justify-center w-full" >
+                <div className="flex flex-1 md:flex-col flex-row md:gap-2 items-center justify-between w-full" >
                 {/* <div className="h-[508px] relative w-[100%] md:w-full mx-10" onClick={handleBillPaymentClick}>
                     <div className="bg-white-A700 h-[250px] m-auto rounded-[400px] shadow-bs7 w-full"></div>
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[100%]">
@@ -322,7 +325,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                       </Text>
                     </div>
                   </div> */}
-                  <div className="h-[190px] relative w-[100%] md:w-full mx-10" onClick={handleTransactionAnalyticsClick}>
+                  <div className="h-[190px] relative w-[100%] md:w-full mr-[100px]" onClick={handleTransactionAnalyticsClick}>
                     <div className="bg-white-A700 h-[190px] m-auto rounded-[600px] shadow-bs7 w-[190px]"></div>
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
                       <Img
@@ -340,7 +343,11 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                     </div>
                   </div>
 
-                  <div className="h-[190px] relative w-[100%] md:w-full mx-10" onClick={handleTransactionHistoryClick}>
+
+
+
+
+                  <div className="h-[190px] relative w-[100%] md:w-full ml-[120px]" onClick={handleTransactionHistoryClick}>
                     <div className="bg-white-A700 h-[190px] m-auto rounded-[600px] shadow-bs7 w-[190px]"></div>
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-center mx-auto top-[0%] w-[70%]">
                       <Img
@@ -416,9 +423,9 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
               </List>
             </div>
           </div>
-          <Line className="bg-black-900_72 h-0.5 mt-[43px] w-full" />
+          <Line className="bg-black-900_72 h-0.5 mt-[243px] w-full" />
           <Text
-            className="mt-[23px] text-4xl sm:text-[32px] md:text-[34px] text-black-900 text-center"
+            className="mt-[23px] text-2xl sm:text-[32px] md:text-[34px] text-black-900 text-center"
             size="txtJostRomanRegular36"
           >
             Copyrights © 2023 Secure Bank All Rights Reserved

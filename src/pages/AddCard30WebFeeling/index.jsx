@@ -6,6 +6,10 @@ import { Button, Img, Line, Text } from "components";
 const AddCard30WebFeelingPage = () => {
   const { userID } = useParams(); // Get the userID from the URL params
   const navigate = useNavigate ();
+  const [id, setId] = useState("");
+  const [number, setNumber] = useState("");
+  const [expirationDate, setExpiration_Date] = useState("");
+
   const handleChatbotClick = () => {
     navigate(`/chatbotpage30webfeeling/${userID}`);
   }
@@ -17,32 +21,35 @@ const AddCard30WebFeelingPage = () => {
     navigate(`/homepageeverydayaccount30webfeeling/${userID}`)
   };
 
-  const [formData, setFormData] = useState({
-    id: '',
-    number: '',
-    expiration_date: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      const req = {
+        id: id,
+        number: number,
+        expirationDate: expirationDate  
+      }
       const response = await fetch(`http://localhost:8080/sys/user/verifyCard?${userID}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(req),
       });
       if(response.ok){
-        alert("card verified successfully")
+        const data = await response.json(); // Parse the JSON response
+        if(data==true){
+          alert("card activated successfully")
+
+        }else{
+
+        }
       } else{
-        alert("Failed to verify card")
+        alert("Failed to activate card. Add credetntials provided by Bank")
+
       }
     } catch (error) {
       console.error('Error:', error);
@@ -92,24 +99,35 @@ const AddCard30WebFeelingPage = () => {
               alt="iconbacksquare"
               onClick={handleBackButtonClick}
             />
-            <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid
-             flex md:ml-[0] ml-[250px] md:mt-0 mt-[5px] h-[130px] px-[20px] py-[10px] w-[15%] relative rounded-[50px] shadow-bs3 md:w-full ml-[550px]"
-             onClick={handleChatbotClick}>
+            <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid flex md:flex-1 
+            sm:flex-col ml-[600px]
+            flex-row sm:gap-5 items-center justify-center 
+            mb-[10px] md:mt-0 mt-[2px] px-[20px] py-[10px] rounded-[50px] shadow-bs3 w-[10%] md:w-full my-[0px] h-[140px]"
+            onClick={handleChatbotClick}>
               <Img
-                className="mt-[5px] mr-[50px] h-[70px] w-[70px]"
-                src="../../../images/img_ai28146662.png"
+                className="h-[110px] md:h-auto sm:mt-0  object-cover w-[100px] "
+                src="../../../images/girlChatbot.jpg"
                 alt="ai28146662"
               />
+             {/*  <div>
               <Text
-                className="ml-[-25px] mr-[17px] mt-0.5 md:text-5xl text-[20px] text-black-900 text-center text-shadow-ts z-[1]"
-                size="txtPoppinsBold70"
+                className="sm:mt-0  sm:text-4xl md:text-[25px] text-[20px] text-black-900 text-center text-shadow-ts"
+                size="txtPoppinsBold40"
               >
                 <>
                   Open <br />
                   Chat Bot
+                  <br />
+                  <br />
                 </>
-              </Text>
+              </Text> 
+            
+            
+             
+              </div> */}
+
             </div>
+
           </div>
 
 
@@ -273,7 +291,7 @@ const AddCard30WebFeelingPage = () => {
 
 
 
-              <div className="flex md:flex-col flex-col font-poppins gap-14 items-center justify-end md:ml-[0] ml-[165px] mt-[42px] w-[73%] md:w-full">
+              {/* <div className="flex md:flex-col flex-col font-poppins gap-14 items-center justify-end md:ml-[0] ml-[165px] mt-[42px] w-[73%] md:w-full">
                 <Text
                   className="bg-light_blue-900 h-[62px] justify-center pb-1.5 pt-[15px] sm:px-5 px-[14px] 
                   rounded-[41px] sm:text-[33px] md:text-[35px] text-[20px] ml-[160px] text-center text-white-A700 w-[160px]"
@@ -281,14 +299,7 @@ const AddCard30WebFeelingPage = () => {
                 >
                   Block Card
                 </Text>
-                {/* <Button
-                  className="border border-light_blue-900 border-solid cursor-pointer font-semibold leading-[normal] min-w-[319px] sm:text-[33px] md:text-[35px] text-[37px] text-center"
-                  shape="round"
-                  color="white_A700"
-                >
-                  Replace Card
-                </Button> */}
-              </div>
+              </div> */}
             </div>
             <Line className="bg-black-900_3f md:h-0.5 h-[699px] md:ml-[0] ml-[179px] md:mt-0 mt-[22px] w-0.5 md:w-full" />
             <div className="bg-white-A700_01 border border-light_blue-800 border-solid flex md:flex-1 flex-col items-center justify-start mb-56 md:ml-[0] ml-[180px] md:mt-0 mt-[42px] p-[17px] rounded-[30px] shadow-bs5 w-[34%] md:w-full">
@@ -304,13 +315,13 @@ const AddCard30WebFeelingPage = () => {
                 >
                   Activate a New Card
                 </Text>
-                <div className="bg-white-A700 border border-light_blue-900 border-solid flex sm:flex-col 
+                {/* <div className="bg-white-A700 border border-light_blue-900 border-solid flex sm:flex-col 
                 flex-row font-poppins gap-2.5 items-start justify-center mt-8 p-1 rounded-[30px] w-[32%] md:w-full align-center">
                 <select class=" sm:mt-0  sm:text-[31px] md:text-[33px] text-[14px] text-gray-700 border-none " id="cardType">
                 <option value="credit">Credit</option>
                <option value="debit" defaultChecked>Debit</option>
             </select>    
-                </div>
+                </div> */}
 
 
 
@@ -330,9 +341,8 @@ const AddCard30WebFeelingPage = () => {
                       className="ml-8 sm:ml-[0] sm:text-[31px] md:text-[33px] text-[14px] text-gray-700"
                       size="txtPoppinsBold35"
                       placeholder="Enter Card Number"
-                      value={formData.number}
-                      onChange={handleChange}
-                      name="number"
+                      value={number} // Set the value attribute to the email state
+                  onChange={(e) => setNumber(e.target.value)}
                     />                     
                     <Img
                       className="h-[24px] md:h-auto mb-[3px] sm:mt-0 mt-[9px] object-cover rounded-[10px]"
@@ -348,9 +358,8 @@ const AddCard30WebFeelingPage = () => {
                       className="ml-8 sm:ml-[0] sm:text-[31px] md:text-[33px] text-[14px] text-gray-700"
                       size="txtPoppinsBold35"
                       placeholder="Enter ID"
-                      value={formData.id}
-                      onChange={handleChange}
-                      name="id"
+                      value={id} // Set the value attribute to the email state
+                  onChange={(e) => setId(e.target.value)}
                     />     
                     <Img
                       className="h-[24px] md:h-auto object-cover rounded-[10px]"
@@ -383,9 +392,8 @@ const AddCard30WebFeelingPage = () => {
                       className="ml-8 sm:ml-[0] sm:text-[31px] md:text-[33px] text-[14px] text-gray-700"
                       size="txtPoppinsBold35"
                       placeholder="Enter Expiration Date"
-                      name="expiration_date"  // Ensure the name matches the property name in formData
-                      value={formData.expiration_date}
-                      onChange={handleChange}
+                      value={expirationDate} // Set the value attribute to the email state
+                  onChange={(e) => setExpiration_Date(e.target.value)}
                     />                     
                     <Img
                       className="h-[24px] md:h-auto mb-[3px] sm:mt-0 mt-[9px] object-cover rounded-[10px]"
@@ -474,10 +482,10 @@ const AddCard30WebFeelingPage = () => {
                   <Button
                     className="cursor-pointer font-semibold leading-[normal] size-[100px] min-w-[19px] mt-[20px] sm:text-[35px] md:text-[41px] text-[14px] text-center"
                     shape="round"
-                    onClick={handleChange}
+                    onClick={handleSubmit}
                     
                   >
-                    Verify Card
+                    Activate Card
                   </Button>
                 </div>
               </div>
