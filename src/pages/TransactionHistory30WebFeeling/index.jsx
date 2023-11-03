@@ -28,7 +28,7 @@ const TransactionHistory30WebFeelingPage = () => {
   }, []);
   const navigate = useNavigate ();
   const handleChatbotClick = () => {
-    navigate('/chatbotpage30webfeeling');
+    navigate(`/chatbotpage30webfeeling/${userID}`);
   }
   const handleLogoutClick = () => {
     alert('user has been logged out')

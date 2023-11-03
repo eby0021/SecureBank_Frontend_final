@@ -31,7 +31,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
     navigate(`/transactionhistory30webfeeling/${userID}`);
   }
   const handleCardClick = () => {
-    navigate('/addcard30webfeeling');
+    navigate(`/addcard30webfeeling/${userID}`);
   }
   const handleBillPaymentClick = () => {
     navigate('/billpayment30webfeeling');
@@ -43,7 +43,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
     navigate(`/transactionanalytics30webfeeling/${userID}`);
   }
   const handleChatbotClick = () => {
-    navigate('/chatbotpage30webfeeling');
+    navigate(`/chatbotpage30webfeeling/${userID}`);
   }
   const handleLogoutClick = () => {
     alert('user has been logged out')

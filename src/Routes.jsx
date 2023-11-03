@@ -111,11 +111,11 @@ const ProjectRoutes = () => {
             element={<HomePageSavingsAccount30WebFeeling />}
           />
           <Route
-            path="/chatbotpage30webfeeling"
+            path="/chatbotpage30webfeeling/:userID"
             element={<ChatBotPage30WebFeeling />}
           />
           <Route
-            path="/addcard30webfeeling"
+            path="/addcard30webfeeling/:userID"
             element={<AddCard30WebFeeling />}
           />
           <Route

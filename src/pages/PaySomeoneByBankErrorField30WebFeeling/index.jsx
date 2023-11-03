@@ -48,7 +48,7 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
     }
   };
   const handleChatbotClick = () => {
-    navigate('/chatbotpage30webfeeling');
+    navigate(`/chatbotpage30webfeeling/${userID}`);
   }
   const handleLogoutClick = () => {
     alert('user has been logged out')

@@ -1,16 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams  } from "react-router-dom";
-
 import { Img, Line, Text } from "components";
-
 const TransactionAnalytics30WebFeelingPage = () => {
   const navigate = useNavigate ();
   const { userID } = useParams(); // Get the userID from the URL params
+  const [totalDebit, setTotalDebit] = useState(null);
+  const [totalCredit, setTotalCredit] = useState(null);
+  const [lastCredit, setLastCredit] = useState(null);
+  const [lastDebit, setLastDebit] = useState(null);
+  useEffect(() => {
+    const apiUrl = `http://localhost:8080/sys/user/getTotalDebit?${userID}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setTotalDebit(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching balance:', error);
+      });
+  }, []);
+
+
+
+  useEffect(() => {
+    const apiUrl = `http://localhost:8080/sys/user/getTotalCredit?${userID}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setTotalCredit(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching balance:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    const apiUrl = `http://localhost:8080/sys/user/getLastCredit?${userID}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setLastCredit(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching balance:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    const apiUrl = `http://localhost:8080/sys/user/getLastDebit?${userID}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setLastDebit(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching balance:', error);
+      });
+  }, []);
   const handleBackButtonClick = () => {
     navigate(`/homepageeverydayaccount30webfeeling/${userID}`)
   };
   const handleChatbotClick = () => {
-    navigate('/chatbotpage30webfeeling');
+    navigate(`/chatbotpage30webfeeling/${userID}`);
   }
   const handleLogoutClick = () => {
     alert('user has been logged out')
@@ -146,7 +221,7 @@ const TransactionAnalytics30WebFeelingPage = () => {
                       className="mt-[13px] sm:text-[40px] md:text-[46px] text-[20px] text-black-900 text-center"
                       size="txtPoppinsSemiBold50Black900"
                     >
-                      -
+                      {totalDebit !== null ? `$${totalDebit}` : 'Loading debit...'}
                     </Text>
                     <Line className="bg-black-900 h-px mt-[18px] w-full" />
                     <Text
@@ -159,7 +234,8 @@ const TransactionAnalytics30WebFeelingPage = () => {
                       className="mt-[15px] sm:text-[40px] md:text-[46px] text-[20px] text-black-900 text-center"
                       size="txtPoppinsSemiBold50Black900"
                     >
-                      -
+                    {totalCredit !== null ? `$${totalCredit}` : 'Loading credit...'}
+
                     </Text>
                   </div>
                 </div>
@@ -181,7 +257,8 @@ const TransactionAnalytics30WebFeelingPage = () => {
                       text-black-900 text-center"
                       size="txtPoppinsSemiBold50Black900"
                     >
-                      -
+                    {lastDebit !== null ? `$${lastDebit}` : 'Loading credit...'}
+
                     </Text>
                   </div>
                   <div className="h-[45px] md:ml-[0] ml-[35px] md:mt-0 mt-[15px] relative w-[50px] md:w-full">
@@ -214,7 +291,8 @@ const TransactionAnalytics30WebFeelingPage = () => {
                       text-center mt-[20px]"
                       size="txtPoppinsSemiBold50Black900"
                     >
-                      -
+                     {lastCredit !== null ? `$${lastCredit}` : 'Loading credit...'}
+
                     </Text>
                   </div>
                 </div>
