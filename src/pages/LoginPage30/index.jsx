@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, Component, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import Keyboard from "react-simple-keyboard";
+import 'react-simple-keyboard/build/css/index.css';
 import { Button, Img, Line, Text } from "components";
 import { useHistory} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
@@ -61,30 +64,35 @@ const LoginPage30Page = () => {
       console.error('Error:', error);
     }
   };
-    //   const response = await fetch("http://localhost:3001/login", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       email,
-    //       password
-    //     }),
-    //   });
+  const [isRecaptchaChecked, setIsRecaptchaChecked] = useState(false);
+  const recaptchaRef = useRef();
 
-    //   if (response.status === 200) {
-    //     // Handle successful login (e.g., redirect to a dashboard)
-    //     alert("Login successful");
-    //     navigate("/homepageeverydayaccount30webfeeling");
-    //   } else {
-    //     // Handle login failure (e.g., show an error message)
-    //     alert("Login failed");
-    //     console.error("Login failed");
-    //   }
-    // } catch (error) {
-    //   // Handle network or other errors
-    //   console.error("Error:", error);
-    
+
+  const handleRecaptchaChange = (value) => {
+    setIsRecaptchaChecked(!!value);
+  };
+  const onKeyPress = (button) => {
+    console.log("Button pressed", button);
+  };
+
+  const [emailKeyboardVisible, setEmailKeyboardVisible] = useState(false);
+  const [passwordKeyboardVisible, setPasswordKeyboardVisible] = useState(false);
+
+  const toggleEmailKeyboard = () => {
+    setEmailKeyboardVisible(!emailKeyboardVisible);
+  };
+
+  const togglePasswordKeyboard = () => {
+    setPasswordKeyboardVisible(!passwordKeyboardVisible);
+  };
+
+  const onChangeEmail = (input) => {
+    setEmail(input);
+  };
+
+  const onChangePassword = (input) => {
+    setPassword(input);
+  };
 
   return (
     <>
@@ -135,15 +143,21 @@ const LoginPage30Page = () => {
                   className="h-[54px] md:h-auto mr-[5px] object-cover rounded-[10px]"
                   src="images/img_keyboard8419852_74x129.png"
                   alt="keyboard8419852"
+                  onClick={toggleEmailKeyboard}  
                 />
               </div>
+              {emailKeyboardVisible && (
+            <div>
+          <Keyboard onChange={onChangeEmail} onKeyPress={onKeyPress} />
+            </div>
+          )}
               <Line className="bg-light_blue-900 h-[5px] mt-0 w-full" />
-              <Text
+              {/* <Text
                 className="italic ml-1.5 md:ml-[0] mt-[7px] text-xl md:text-[22px] text-center text-light_blue-900 sm:text-xl"
                 size="txtPoppinsMediumItalic24"
               >
                 Forgot Login ID?
-              </Text>
+              </Text> */}
               <div className="bg-white-A700 border border-light_blue-900 border-solid flex sm:flex-col flex-row sm:gap-10 items-center justify-between mt-[30px]  rounded-tl-[10px] rounded-tr-[10px] w-full">
                 <input
                   type="password"
@@ -156,15 +170,21 @@ const LoginPage30Page = () => {
                   className="h-[54px] md:h-auto mr-[5px] object-cover rounded-[10px]"
                   src="images/img_keyboard8419852_74x129.png"
                   alt="keyboard8419852_One"
+                  onClick={togglePasswordKeyboard}
                 />
               </div>
+              {passwordKeyboardVisible && (
+            <div>
+              <Keyboard onChange={onChangePassword} onKeyPress={onKeyPress} />
+            </div>
+          )}
               <Line className="bg-light_blue-900 h-[5px] mt-[0px] w-full" />
-              <Text
+              {/* <Text
                 className="italic mt-[7px] text-xl md:text-[22px] text-center text-light_blue-900 sm:text-xl"
                 size="txtPoppinsMediumItalic24"
               >
                 Forgot Password?
-              </Text>
+              </Text> */}
               {/* <div className="flex sm:flex-col flex-row gap-[13px] items-start justify-end md:ml-[0] ml-[265px] mt-0.5 w-[59%] md:w-full">
                 <div className="bg-white-A700 border border-black-900 border-solid h-[50px] mb-[3px] rounded-[10px] w-[50px]"></div>
                 <Text
@@ -174,52 +194,27 @@ const LoginPage30Page = () => {
                   Keep me signed in
                 </Text>
               </div> */}
-              <div className="bg-gray-50 border border-light_blue-900 border-solid flex flex-col items-end justify-end md:ml-[0] ml-[65px] mt-[10px] p-[3px] shadow-bs2 w-[67%] md:w-full">
-                <div className="flex sm:flex-col flex-row sm:gap-5 items-center justify-end mt-[0px] w-[91%] md:w-full">
-                  <div className="bg-white-A700 border-2 border-gray-700_01 border-solid h-[20px] mb-[15px] sm:mt-0 mt-[10px] w-[25px]"></div>
-                  <Text
-                    className="ml-3 sm:ml-[0] sm:text-[23px] md:text-[25px] text-[10px] text-black-900 justify-start"
-                  
-                  >
-                    I'm not a robot
-                  </Text>
-                  <div className="flex flex-col justify-start sm:ml-[0] ml-[98px] w-[80%] sm:w-full">
-                    <Img
-                      className="h-[50px] md:h-auto md:ml-[0] ml-[20px] object-cover w-[50px]"
-                      src="images/img_captcha6119848.png"
-                      alt="captcha6119848"
-                    />
-                    <div className="h-10 md:h-[33px] mt-[3px] relative w-full">
-                      <Text
-                        className="absolute italic right-[10%] text-black-900 text-center text-[15px] top-[0]"
-                        size="txtPoppinsMediumItalic20"
-                      >
-                        reCaptcha
-                      </Text>
-                        {/* <a
-                          href="javascript:"
-                          className="text-black-900 font-poppins font-medium underline italic"
-                        >
-                          Privacy
-                        </a>
-                        <span className="text-black-900 font-poppins font-medium italic">
-                          {" "}
-                          -{" "}
-                        </span>
-                        <a
-                          href="javascript:"
-                          className="text-black-900 font-poppins font-medium underline italic"
-                        >
-                          Terms
-                        </a> */}
-                     
-                    </div>
-                  </div>
+                <div className="flex sm:flex-col flex-row sm:gap-5 items-center justify-end w-[91%] md:w-full mt-[20px]">
+                  {/* <div className="bg-white-A700 border-2 border-gray-700_01 border-solid h-[20px] mb-[15px] sm:mt-0 mt-[10px] w-[25px]"></div> */}
+                  {/* <input
+                    type="checkbox"
+                    id="recaptchaCheckbox"
+                    onChange={() => {
+                      recaptchaRef.current.execute();
+                    }}
+                  /> */}
+                  {/* <label htmlFor="recaptchaCheckbox">I'm not a robot</label> */}
+
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey="6Ld_7AQpAAAAAJtRHHrx8rUF_Uy7T1Z5w-uSxo8n"
+                    onChange={handleRecaptchaChange}
+                  />
                 </div>
-              </div>
               <Button className="cursor-pointer font-semibold leading-[normal]
                min-w-[200px] sm:min-w-full ml-[130px] md:ml-[20px] mt-[10px] rounded-[47px] 
                sm:text-[35px] md:text-[41px] text-[25px] text-center"
+               disabled={!isRecaptchaChecked}
                onClick={handleLoginLogic}
                type="submit"
                >

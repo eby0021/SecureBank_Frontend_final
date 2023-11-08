@@ -32,27 +32,34 @@ const TransactionHistory30WebFeelingPage = () => {
   }
   const handleLogoutClick = () => {
     alert('user has been logged out')
-    navigate('/loginpage30')
+    navigate('/')
   }
   const handleBackButtonClick = () => {
     navigate(`/homepageeverydayaccount30webfeeling/${userID}`)
   };
+  // useEffect(() => {
+  //   return () => {
+  //     setTransactions([]); // Clear the transactions when unmounting
+  //   };
+  // }, []);
   useEffect(() => {
-    return () => {
-      setTransactions([]); // Clear the transactions when unmounting
-    };
-  }, []);
-  useEffect(() => {
-    // Make a GET request to fetch transactions
-    fetch(`http://localhost:8080//sys/user/getAllTransactions?userID=1`)
-      .then((response) => response.json())
+    const apiUrl = `http://localhost:8080/sys/user/getAllTransactions?${userID}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
-        setTransactions(data); // Update the 'transactions' state with the response data
+        setTransactions(data);
       })
       .catch((error) => {
         console.error('Error fetching transactions:', error);
       });
-  }, [userID]);
+  }, []);
+
   
   return (
     <>

@@ -86,14 +86,14 @@ const ProjectRoutes = () => {
     <React.Suspense fallback={<>Loading...</>}>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LoginPage30 />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/signuppage30" element={<SignupPage30Page />} />
           <Route
             path="/signuppayidcheckedpage30"
             element={<SignupPayIDCheckedPage30 />}
           />
-          <Route path="/loginpage30" element={<LoginPage30 />} />
+          {/* <Route path="/loginpage30" element={<LoginPage30 />} /> */}
           <Route path="/bpay/:userID" element={<BPAY />} />
           <Route path="/transfer/:userID" element={<Transfer />} />
           <Route path="/transferForSavings" element={<TransferForSavings />} />

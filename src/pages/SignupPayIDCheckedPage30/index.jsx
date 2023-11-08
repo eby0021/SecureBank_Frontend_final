@@ -65,7 +65,7 @@ const SignupPayIDCheckedPage30Page = () => {
 
     if (response.ok) {
       alert('user registered successfully');
-      navigate("/loginpage30");
+      navigate("/");
       // Redirect to another page or perform other actions upon successful login
     } else {
       alert('Failed to register user');

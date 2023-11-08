@@ -11,7 +11,7 @@ const ChatBotPage30WebFeelingPage = () => {
   };
   const handleLogoutClick = () => {
     alert('user has been logged out')
-    navigate('/loginpage30')
+    navigate('/')
   }
   const handleSendMessage = async () => {
     try {

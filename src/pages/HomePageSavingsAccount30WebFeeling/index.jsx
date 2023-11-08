@@ -29,7 +29,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
   }
   const handleLogoutClick = () => {
     alert('user has been logged out')
-    navigate('/loginpage30')
+    navigate('/')
   }
   return (
     <>
@@ -360,7 +360,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
             className="mt-[63px] text-[30px] sm:text-[32px] md:text-[34px] text-black-900 text-center"
             size="txtJostRomanRegular36"
           >
-            Copyrights © 2024 Secure Bank All Rights Reserved
+            Copyrights © 2023 Secure Bank All Rights Reserved
           </Text>
         </div>
       </div>

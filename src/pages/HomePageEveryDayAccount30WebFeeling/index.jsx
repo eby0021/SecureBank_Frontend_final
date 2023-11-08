@@ -47,7 +47,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
   }
   const handleLogoutClick = () => {
     alert('user has been logged out')
-    navigate('/loginpage30')
+    navigate('/')
   }
 
   return (
@@ -100,6 +100,9 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
           my-[0px] max-w-[2228px] mt-2.5 mx-auto md:px-5 w-[90%] h-[150px]">
            
            
+
+
+           
             <div className="bg-white-A700 border-[5px] border-light_blue-900 border-solid flex md:flex-1 
             sm:flex-col 
             flex-row sm:gap-5 items-center justify-center 
@@ -129,6 +132,11 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
 
             </div>
             
+
+
+
+
+
             <div className="flex md:flex-1 ml-[650px] mt-[0px] flex-row md:gap-10 items-start justify-between w-[40%] md:w-full">
               <div className="bg-white-A700 flex flex-col items-start justify-start md:mt-0 mt-[5px] p-[15px] shadow-bs4 ml-[0px]">
                 <div className="flex flex-col gap-[0px] justify-start mb-1 ml-0 md:ml-[0] w-[100%] md:w-full h-[100px]">
