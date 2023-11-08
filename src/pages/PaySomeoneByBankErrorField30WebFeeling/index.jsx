@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams  } from "react-router-dom";
 import { Img, Line, List, Text } from "components";
-
+import Keyboard from "react-simple-keyboard";
+import 'react-simple-keyboard/build/css/index.css';
 const PaySomeoneByBankErrorField30WebFeelingPage = () => {
   const navigate = useNavigate ();
   const { userID } = useParams(); // Get the userID from the URL params
@@ -54,6 +55,45 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
     alert('user has been logged out')
     navigate('/')
   }
+
+
+
+  
+  const onKeyPress = (button) => {
+    console.log("Button pressed", button);
+  };
+  const [amountKeyboardVisible, setAmountKeyboardVisible] = useState(false);
+  const [bsbKeyboardVisible, setBsbKeyboardVisible] = useState(false);
+  const [numberKeyboardVisible, setNumberKeyboardVisible] = useState(false);
+
+
+
+  const toggleAmountKeyboard = () => {
+    setAmountKeyboardVisible(!amountKeyboardVisible);
+  };
+
+  const toggleBsbKeyboard = () => {
+    setBsbKeyboardVisible(!bsbKeyboardVisible);
+  };
+
+  const toggleNumberKeyboard = () => {
+    setNumberKeyboardVisible(!numberKeyboardVisible);
+  };
+
+
+  const onChangeAmount = (input) => {
+    setAmount(input);
+  };
+
+  const onChangeBsb = (input) => {
+    setBsb(input);
+  };
+
+
+  const onChangeNumber = (input) => {
+    setDestAcc(input);
+  };
+
   return (
     <>
       <div className="bg-white-A700 flex flex-col items-center justify-start  pb-[52px] w-full">
@@ -260,8 +300,15 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={toggleBsbKeyboard}
+                        />
+                      </div>
+                      {bsbKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangeBsb} onKeyPress={onKeyPress} />
                     </div>
+                  )}
+
 
 
                     <div
@@ -273,8 +320,15 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={toggleNumberKeyboard}
+                        />
+                      </div>
+                      {numberKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangeNumber} onKeyPress={onKeyPress} />
                     </div>
+                  )}
+
                     {/* <Line className="bg-black-900_72 md:h-0.5 h-[97px] md:ml-[0] ml-[9px] w-0.5 md:w-full" /> */}
 
                     {/* <div className="bg-white-A700 border border-light_blue-900 border-solid flex sm:flex-col flex-row md:gap-10 items-center justify-between mt-[46px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
@@ -332,8 +386,15 @@ const PaySomeoneByBankErrorField30WebFeelingPage = () => {
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px] ml-[445px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={toggleAmountKeyboard}
+                        />
+                      </div>
+                      {amountKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangeAmount} onKeyPress={onKeyPress} />
                     </div>
+                  )}
+
                     {/* <Line className="bg-light_blue-900 h-[5px] mt-1.5 w-full" /> */}
                     <div className="input-field bg-white-A700 border-2 border-light_blue-900 border-solid flex
                      md:flex-col flex-row gap-[57px] items-center justify-end mt-[20px] w-[100%]  md:w-full">

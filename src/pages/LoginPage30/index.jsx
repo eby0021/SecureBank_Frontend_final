@@ -220,14 +220,14 @@ const LoginPage30Page = () => {
                >
                 Login
               </Button>
-              <Button
+              {/* <Button
                 className="border-[5px] border-light_blue-900 border-solid cursor-pointer font-semibold leading-[normal]
                  min-w-[200px] sm:min-w-full md:ml-[0] ml-[130px] mt-[10px] rounded-[47px] sm:text-[35px] md:text-[41px] text-[25px] text-center"
                 color="white_A700"
                 onClick={handleSignupLogic}
               >
                 Signup
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>

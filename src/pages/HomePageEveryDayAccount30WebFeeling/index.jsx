@@ -333,7 +333,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
                       </Text>
                     </div>
                   </div> */}
-                  <div className="h-[190px] relative w-[100%] md:w-full mr-[100px]" onClick={handleTransactionAnalyticsClick}>
+                  <div className="h-[190px] relative w-[100%] md:w-full mr-[250px]" onClick={handleTransactionAnalyticsClick}>
                     <div className="bg-white-A700 h-[190px] m-auto rounded-[600px] shadow-bs7 w-[190px]"></div>
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-start mx-auto top-[0%] w-[70%]">
                       <Img
@@ -355,7 +355,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
 
 
 
-                  <div className="h-[190px] relative w-[100%] md:w-full ml-[120px]" onClick={handleTransactionHistoryClick}>
+                  <div className="h-[190px] relative w-[100%] md:w-full ml-[0px]" onClick={handleTransactionHistoryClick}>
                     <div className="bg-white-A700 h-[190px] m-auto rounded-[600px] shadow-bs7 w-[190px]"></div>
                     <div className="absolute flex flex-col inset-x-[0] items-center justify-center mx-auto top-[0%] w-[70%]">
                       <Img

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams  } from "react-router-dom";
 import { Img, Line, List, Text } from "components";
+import Keyboard from "react-simple-keyboard";
+import 'react-simple-keyboard/build/css/index.css';
 
 const BPAY = () => {
   const navigate = useNavigate ();
@@ -58,6 +60,48 @@ const BPAY = () => {
     alert('user has been logged out')
     navigate('/')
   }
+
+
+  const [codeKeyboardVisible, setCodeKeyboardVisible] = useState(false);
+  const [numberKeyboardVisible, setNumberKeyboardVisible] = useState(false);
+  const [amountKeyboardVisible, setAmountKeyboardVisible] = useState(false);
+  const [nicknameKeyboardVisible, setNicknameKeyboardVisible] = useState(false);
+
+  const toggleCodeKeyboard = () => {
+    setCodeKeyboardVisible(!codeKeyboardVisible);
+  };
+
+  const toggleNumberKeyboard = () => {
+    setNumberKeyboardVisible(!numberKeyboardVisible);
+  };
+
+  const toggleAmountKeyboard = () => {
+    setAmountKeyboardVisible(!amountKeyboardVisible);
+  };
+
+  const toggleNicknameKeyboard = () => {
+    setNicknameKeyboardVisible(!nicknameKeyboardVisible);
+  };
+  const onChangeCode = (input) => {
+    setBillerCode(input);
+  };
+
+  const onChangeNumber = (input) => {
+    setReferenceNumber(input);
+  };
+
+  const onChangeAmount = (input) => {
+    setAmount(input);
+  };
+
+  const onChangeNickname = (input) => {
+    setNickname(input);
+  };
+  const onKeyPress = (button) => {
+    console.log("Button pressed", button);
+  };
+
+
   return (
     <>
       <div className="bg-white-A700 flex flex-col items-center justify-start  pb-[52px] w-full">
@@ -371,18 +415,26 @@ const BPAY = () => {
 
                     </div>
                     {/* input fields start from here */}
+
+
                     <div className="input-field bg-white-A700 border border-light_blue-900 border-solid flex flex-row md:gap-10
                      items-center justify-between mt-[25px] p-[2px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                     <input 
                       className="ml-[47px] sm:text-[11px] md:text-[13px] text-[15px] text-black-900 border-none
                       outline-none"    
-                 type="text" value={billerCode} onChange={(e) => setBillerCode(e.target.value)} placeholder='Enter Biller Code'/>
+                      type="text" value={billerCode} onChange={(e) => setBillerCode(e.target.value)} placeholder='Enter Biller Code'/>
                       <Img
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px] ml-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={toggleCodeKeyboard}
+                        />
+                      </div>
+                      {codeKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangeCode} onKeyPress={onKeyPress} />
                     </div>
+                  )}
 
 
                     <div
@@ -396,8 +448,14 @@ const BPAY = () => {
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={toggleNumberKeyboard}
+                        />
+                      </div>
+                      {numberKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangeNumber} onKeyPress={onKeyPress} />
                     </div>
+                  )}
                     {/* <div className="bg-white-A700 border border-light_blue-900 border-solid flex sm:flex-col flex-row md:gap-10 items-center justify-between mt-[46px] p-[11px] rounded-tl-[10px] rounded-tr-[10px] w-full">
                       <Text
                         className="sm:ml-[0] ml-[47px] sm:text-[31px] md:text-[33px] text-[35px] text-black-900"
@@ -456,8 +514,14 @@ const BPAY = () => {
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px] ml-[400px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={toggleAmountKeyboard}
+                        />
+                      </div>
+                      {amountKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangeAmount} onKeyPress={onKeyPress} />
                     </div>
+                  )}
 
 
 
@@ -472,8 +536,14 @@ const BPAY = () => {
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={toggleNicknameKeyboard}
+                        />
+                      </div>
+                      {nicknameKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangeNickname} onKeyPress={onKeyPress} />
                     </div>
+                  )}
 
 
 

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams  } from "react-router-dom";
 import { Img, Line, List, Text } from "components";
-
+import Keyboard from "react-simple-keyboard";
+import 'react-simple-keyboard/build/css/index.css';
 const Transfer = () => {
   const navigate = useNavigate ();
   const { userID } = useParams(); // Get the userID from the URL params
@@ -50,6 +51,33 @@ const Transfer = () => {
     alert('user has been logged out')
     navigate('/')
   }
+
+  const onKeyPress = (button) => {
+    console.log("Button pressed", button);
+  };
+  const [amountKeyboardVisible, setAmountKeyboardVisible] = useState(false);
+  const [payIDKeyboardVisible, setPayIDKeyboardVisible] = useState(false);
+
+
+
+  const toggleAmountKeyboard = () => {
+    setAmountKeyboardVisible(!amountKeyboardVisible);
+  };
+
+  const togglePayIDKeyboard = () => {
+    setPayIDKeyboardVisible(!payIDKeyboardVisible);
+  };
+
+
+  const onChangeAmount = (input) => {
+    setAmount(input);
+  };
+
+  const onChangePayID = (input) => {
+    setPayID(input);
+  };
+
+
   return (
     <>
       <div className="bg-white-A700 flex flex-col items-center justify-start  pb-[52px] w-full">
@@ -271,8 +299,14 @@ const Transfer = () => {
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={togglePayIDKeyboard}
+                        />
+                      </div>
+                      {payIDKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangePayID} onKeyPress={onKeyPress} />
                     </div>
+                  )}
 
 
 
@@ -339,8 +373,14 @@ const Transfer = () => {
                         className="h-[48px] md:h-auto mr-1.5 object-cover rounded-[10px] ml-[380px]"
                         src="../../../images/img_keyboard8419852.png"
                         alt="keyboard8419852"
-                      />
+                        onClick={toggleAmountKeyboard}
+                        />
+                      </div>
+                      {amountKeyboardVisible && (
+                    <div>
+                      <Keyboard onChange={onChangeAmount} onKeyPress={onKeyPress} />
                     </div>
+                  )}
                     <Line className="bg-light_blue-900 h-[5px] mt-1.5 w-full" />
                   
 

@@ -1,0 +1,26 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .user-message {
+    align-self: flex-end; /* Align user's messages to the right */
+    background-color: #007bff; /* User's message background color */
+    color: white; /* User's message text color */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+  
+  .chatbot-message {
+    align-self: flex-start; /* Align chatbot's messages to the left */
+    background-color: #f0f0f0; /* ChatBot's message background color */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+  

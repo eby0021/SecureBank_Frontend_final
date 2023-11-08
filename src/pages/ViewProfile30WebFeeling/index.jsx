@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams  } from "react-router-dom";
 import { Button, Img, Line, List, Text } from "components";
-
+import Keyboard from "react-simple-keyboard";
+import 'react-simple-keyboard/build/css/index.css';
 const ViewProfile30WebFeelingPage = () => {
   const navigate = useNavigate();
   const { userID } = useParams(); // Get the userID from the URL params
@@ -89,6 +90,60 @@ const handleUpdateProfile = async () => {
     } catch (error) {
         console.error('Error:', error);
     }
+};
+
+
+
+
+
+const [nameKeyboardVisible, setNameKeyboardVisible] = useState(false);
+const [numberKeyboardVisible, setNumberKeyboardVisible] = useState(false);
+const [emailKeyboardVisible, setEmailKeyboardVisible] = useState(false);
+const [dobKeyboardVisible, setDOBKeyboardVisible] = useState(false);
+const [passwordKeyboardVisible, setPasswordKeyboardVisible] = useState(false);
+
+
+const toggleNameKeyboard = () => {
+  setNameKeyboardVisible(!nameKeyboardVisible);
+};
+
+const toggleNumberKeyboard = () => {
+  setNumberKeyboardVisible(!numberKeyboardVisible);
+};
+
+const toggleEmailKeyboard = () => {
+  setEmailKeyboardVisible(!emailKeyboardVisible);
+};
+
+const toggleDOBKeyboard = () => {
+  setDOBKeyboardVisible(!dobKeyboardVisible);
+};
+
+const togglePasswordKeyboard = () => {
+  setPasswordKeyboardVisible(!passwordKeyboardVisible);
+};
+
+const onChangeName = (input) => {
+  setUpdatedProfileData({ ...updatedProfileData, firstName: input })
+};
+
+const onChangeNumber = (input) => {
+  setUpdatedProfileData({ ...updatedProfileData, mobileNumber: input })
+};
+
+const onChangeEmail = (input) => {
+  setUpdatedProfileData({ ...updatedProfileData, email: input })
+};
+
+const onChangeDOB = (input) => {
+  setUpdatedProfileData({ ...updatedProfileData, dateOfBirth: input })
+};
+
+const onChangePassword = (input) => {
+  setUpdatedProfileData({ ...updatedProfileData, userPassword: input })
+};
+const onKeyPress = (button) => {
+  console.log("Button pressed", button);
 };
   return (
     <>
@@ -242,8 +297,15 @@ const handleUpdateProfile = async () => {
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
                       src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
-                    />
+                      onClick={toggleNameKeyboard}
+                      />
+                    </div>
+                    {nameKeyboardVisible && (
+                  <div className='ml-[400px]'>
+                  <Keyboard onChange={onChangeName} onKeyPress={onKeyPress} />
                   </div>
+                )}
+
 
 
 
@@ -278,8 +340,15 @@ const handleUpdateProfile = async () => {
                       className="md:flex-1 h-[27px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
                       src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
-                    />
+                      onClick={toggleNumberKeyboard}
+                      />
+                    </div>
+                    {numberKeyboardVisible && (
+                  <div className='ml-[400px]'>
+                  <Keyboard onChange={onChangeNumber} onKeyPress={onKeyPress} />
                   </div>
+                )}
+
 
 
 
@@ -311,8 +380,15 @@ const handleUpdateProfile = async () => {
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[25px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
                       src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
-                    />
+                      onClick={toggleEmailKeyboard}
+                      />
+                    </div>
+                    {emailKeyboardVisible && (
+                  <div className='ml-[400px]'>
+                  <Keyboard onChange={onChangeEmail} onKeyPress={onKeyPress} />
                   </div>
+                )}
+
 
 
 
@@ -344,35 +420,17 @@ const handleUpdateProfile = async () => {
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
                       src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
-                    />
+                      onClick={toggleDOBKeyboard}
+                      />
+                    </div>
+                    {dobKeyboardVisible && (
+                  <div className='ml-[400px]'>
+                  <Keyboard onChange={onChangeDOB} onKeyPress={onKeyPress} />
                   </div>
+                )}
 
 
-
-               
-
-
-                  <div className="bg-white-A700 border h-[50px] ml-[390px] w-[550px] mt-[07px] border-light_blue-900 
-                  border-solid flex md:flex-col flex-row md:gap-5 items-center justify-start px-0 rounded-tl-[2px] rounded-tr-[2px] ">
-                   <label className=" sm:text-[31px] md:text-[33px] text-[18px] w-[20%] ml-[30px]" 
-                    size="txtJostRomanBold70"
-                    >
-                    Acc Number
-                   </label>
-                   <Text
-                    className="md:ml-[0] mb-[20px] h-[30px] md:mt-0 mt-[20px] sm:text-[31px] md:text-[33px]
-                     text-[18px] ml-[10px] text-black-900"
-                    size="txtPoppinsSemiBold35">
-                    {profileData.accountNumber}
-                    </Text>
-
-                    <Img
-                      className="md:flex-1 h-[28px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px]
-                       object-cover rounded-[10px] w-[9%] md:w-full ml-[320px]"
-                      src="../../../images/img_keyboard8419852.png"
-                      alt="keyboard8419852"
-                    />
-                  </div>
+                
 
 
                   <div className="bg-white-A700 border h-[50px] ml-[390px] w-[550px] mt-[07px] border-light_blue-900 
@@ -403,8 +461,33 @@ const handleUpdateProfile = async () => {
                       className="md:flex-1 h-[24px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
                       src="../../../images/img_keyboard8419852.png"
                       alt="keyboard8419852"
-                    />
+                      onClick={togglePasswordKeyboard}
+                      />
+                    </div>
+                    {passwordKeyboardVisible && (
+                  <div className='ml-[400px]'>
+                    <Keyboard onChange={onChangePassword} onKeyPress={onKeyPress} />
                   </div>
+                )}
+
+
+                  <div className="bg-white-A700 border h-[50px] ml-[390px] w-[550px] mt-[07px] border-light_blue-900 
+                  border-solid flex md:flex-col flex-row md:gap-5 items-center justify-start px-0 rounded-tl-[2px] rounded-tr-[2px] ">
+                   <label className=" sm:text-[31px] md:text-[33px] text-[18px] w-[20%] ml-[30px]" 
+                    size="txtJostRomanBold70"
+                    >
+                    Acc Number
+                   </label>
+                   <Text
+                    className="md:ml-[0] mb-[20px] h-[30px] md:mt-0 mt-[20px] sm:text-[31px] md:text-[33px]
+                     text-[18px] ml-[10px] text-black-900"
+                    size="txtPoppinsSemiBold35">
+                    {profileData.accountNumber}
+                    </Text>     
+                  </div>
+
+
+
 
                   <div className="bg-white-A700 border h-[50px] ml-[390px] w-[550px] mt-[07px] border-light_blue-900 
                   border-solid flex md:flex-col flex-row md:gap-5 items-center justify-start px-0 rounded-tl-[2px] rounded-tr-[2px] ">
@@ -418,14 +501,7 @@ const handleUpdateProfile = async () => {
                         text-[18px] ml-[0px] text-black-900"
                         size="txtPoppinsSemiBold35">
                         {profileData.payId}
-                      </Text>
-
-                   
-                    <Img
-                      className="md:flex-1 h-[28px] ml-[290px] sm:h-auto md:ml-[0] mb-[20px] ml-[10px] md:mt-0 mt-[25px] object-cover rounded-[10px] w-[9%] md:w-full"
-                      src="../../../images/img_keyboard8419852.png"
-                      alt="keyboard8419852"
-                    />
+                      </Text>             
                   </div>
 
 
