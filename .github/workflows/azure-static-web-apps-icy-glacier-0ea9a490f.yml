@@ -29,6 +29,7 @@ jobs:
         run: |
           npm install -g npm@8.19.4
           npm update
+          npm audit fix
 
       - name: Clear npm cache
         run: npm cache clean --force
