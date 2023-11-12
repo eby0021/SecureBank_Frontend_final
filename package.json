@@ -19,6 +19,10 @@
     "web-vitals": "^2.1.0",
      "postcss": "^8.4.31"
   },
+  "engines": {
+  "node": "16.20.2",
+  "npm": "8.19.4"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
