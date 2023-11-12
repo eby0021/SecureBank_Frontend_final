@@ -25,10 +25,10 @@ jobs:
         with:
           node-version: 16.20.2
 
-      - name: Update npm
+      - name: Update npm and fix vulnerabilities
         run: |
           npm install -g npm@8.19.4
-          npm update
+          npm install --legacy-peer-deps
           npm audit fix
 
       - name: Clear npm cache
