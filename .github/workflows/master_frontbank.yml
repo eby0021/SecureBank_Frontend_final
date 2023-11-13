@@ -1,56 +1,56 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy Node.js app to Azure Web App - frontbank
+name: Azure Static Web Apps CI/CD
 
 on:
   push:
     branches:
       - master
-  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - master
 
 jobs:
-  build:
-    runs-on: windows-latest
-
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
 
-      - name: Set up Node.js version
+      - name: Use Node.js 18.15.0
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: 18.15.0
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      - name: Update npm to 9.5.0
+        run: npm install -g npm@9.5.0
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          name: node-app
-          path: .
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/" 
+          api_location: "api" 
+          output_location: "build"
 
-  deploy:
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
+    name: Close Pull Request Job
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          name: node-app
-
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'frontbank'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_41D1DC9C09DB4AD4B0F126EFF0BD32D9 }}
-          package: .
+          azure_static_web_apps_api_token: '54545e900d23d7ccce616acd06e11c12a40ee56028264dd6280609ab1e3b8a0b4-0b2b0d51-b121-4b60-b188-22aabd609b6f00f124251'
+          action: "close"
