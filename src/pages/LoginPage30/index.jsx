@@ -27,7 +27,7 @@ const LoginPage30Page = () => {
         };
 
         // Send the POST request to the backend
-        const response = await fetch('http://localhost:8080//sys/user/loginCheck', {
+        const response = await fetch('https://secure-bank.azurewebsites.net/sys/user/loginCheck', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

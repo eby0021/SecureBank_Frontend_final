@@ -9,7 +9,7 @@ const TransactionAnalytics30WebFeelingPage = () => {
   const [lastCredit, setLastCredit] = useState(null);
   const [lastDebit, setLastDebit] = useState(null);
   useEffect(() => {
-    const apiUrl = `http://localhost:8080/sys/user/getTotalDebit?${userID}`;
+    const apiUrl = `https://secure-bank.azurewebsites.net/sys/user/getTotalDebit?${userID}`;
 
     fetch(apiUrl)
       .then((response) => {
@@ -29,7 +29,7 @@ const TransactionAnalytics30WebFeelingPage = () => {
 
 
   useEffect(() => {
-    const apiUrl = `http://localhost:8080/sys/user/getTotalCredit?${userID}`;
+    const apiUrl = `https://secure-bank.azurewebsites.net/sys/user/getTotalCredit?${userID}`;
 
     fetch(apiUrl)
       .then((response) => {
@@ -47,7 +47,7 @@ const TransactionAnalytics30WebFeelingPage = () => {
   }, []);
 
   useEffect(() => {
-    const apiUrl = `http://localhost:8080/sys/user/getLastCredit?${userID}`;
+    const apiUrl = `https://secure-bank.azurewebsites.net/sys/user/getLastCredit?${userID}`;
 
     fetch(apiUrl)
       .then((response) => {
@@ -65,7 +65,7 @@ const TransactionAnalytics30WebFeelingPage = () => {
   }, []);
 
   useEffect(() => {
-    const apiUrl = `http://localhost:8080/sys/user/getLastDebit?${userID}`;
+    const apiUrl = `https://secure-bank.azurewebsites.net/sys/user/getLastDebit?${userID}`;
 
     fetch(apiUrl)
       .then((response) => {

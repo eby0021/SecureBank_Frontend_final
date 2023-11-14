@@ -33,7 +33,7 @@ const AddCard30WebFeelingPage = () => {
         number: number,
         expirationDate: expirationDate  
       }
-      const response = await fetch(`http://localhost:8080/sys/user/verifyCard?${userID}`, {
+      const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/verifyCard?${userID}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const AddCard30WebFeelingPage = () => {
         if(data==true){
           alert("card activated successfully")
             // Trigger the API request to check the condition again
-    fetch(`http://localhost:8080/sys/user/cardActive?${userID}`)
+    fetch(`https://secure-bank.azurewebsites.net/sys/user/cardActive?${userID}`)
     .then((response) => response.json())
     .then((data) => {
       // Set the condition based on the isActive status of the card
@@ -73,7 +73,7 @@ const AddCard30WebFeelingPage = () => {
   const [isBlocked, setIsBlocked] = useState(false);
   useEffect(() => {
     // Make an API request to check the condition
-    fetch(`http://localhost:8080/sys/user/cardActive?${userID}`)
+    fetch(`https://secure-bank.azurewebsites.net/sys/user/cardActive?${userID}`)
       .then((response) => response.json())
       .then((data) => {
         // Set the condition based on the isActive status of card 
@@ -88,7 +88,7 @@ const AddCard30WebFeelingPage = () => {
 
   useEffect(() => {
     // Make an API request to check the condition
-    fetch(`http://localhost:8080/sys/user/cardBlocked?${userID}`)
+    fetch(`https://secure-bank.azurewebsites.net/sys/user/cardBlocked?${userID}`)
       .then((response) => response.json())
       .then((data) => {
         // Set the condition based on the isActive status of card 
@@ -104,7 +104,7 @@ const AddCard30WebFeelingPage = () => {
   const handleBlock = async () => {
     try {
       // Send a POST request to verify the card with the userID in the URL
-      const response = await fetch(`http://localhost:8080/sys/user/blockCard?${userID}`, {
+      const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/blockCard?${userID}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ const AddCard30WebFeelingPage = () => {
         if (data === true) {
           alert("Card blocked successfully");
           setIsBlocked(true); 
-          fetch(`http://localhost:8080/sys/user/cardBlock?${userID}`)
+          fetch(`https://secure-bank.azurewebsites.net/sys/user/cardBlock?${userID}`)
     .then((response) => response.json())
     .then((data) => {
       // Set the condition based on the isActive status of the card
@@ -148,7 +148,7 @@ const AddCard30WebFeelingPage = () => {
   const handleUnblock = async () => {
     try {
       // Send a POST request to verify the card with the userID in the URL
-      const response = await fetch(`http://localhost:8080/sys/user/unblockCard?${userID}`, {
+      const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/unblockCard?${userID}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ const AddCard30WebFeelingPage = () => {
         if (data === true) {
           alert("Card unblocked successfully");
           setIsBlocked(false); 
-          fetch(`http://localhost:8080/sys/user/cardBlocked?${userID}`)
+          fetch(`https://secure-bank.azurewebsites.net/sys/user/cardBlocked?${userID}`)
     .then((response) => response.json())
     .then((data) => {
       // Set the condition based on the isActive status of the card

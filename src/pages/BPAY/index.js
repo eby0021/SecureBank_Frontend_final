@@ -27,7 +27,7 @@ const BPAY = () => {
 
     try {
       // Send a POST request to the backend
-      const response = await fetch(`http://localhost:8080//sys/user/payBill?${userID}`, {
+      const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/payBill?${userID}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

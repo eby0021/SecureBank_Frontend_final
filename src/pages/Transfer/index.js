@@ -22,7 +22,7 @@ const Transfer = () => {
 
     try {
       // Send a POST request to the backend
-      const response = await fetch(`http://localhost:8080//sys/user/payByPayID?${userID}`, {
+      const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/payByPayID?${userID}`, {
         
         method: 'POST',
         headers: {

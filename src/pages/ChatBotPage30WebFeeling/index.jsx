@@ -23,7 +23,7 @@ const ChatBotPage30WebFeelingPage = () => {
           userMessage
         };
         // Send the POST request to the backend
-        const response = await fetch(`http://localhost:8080//sys/user/chat?${userID}`, {
+        const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/chat?${userID}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const ChatBotPage30WebFeelingPage = () => {
 
     async function fetchUserMessages() {
       try {
-        const response = await fetch(`http://localhost:8080/sys/user/getAllMessages?${userID}`);
+        const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/getAllMessages?${userID}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

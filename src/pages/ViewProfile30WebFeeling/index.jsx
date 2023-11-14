@@ -35,7 +35,7 @@ const ViewProfile30WebFeelingPage = () => {
 
   const fetchUserProfileData = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/sys/user/getProfile?${userID}`, {
+      const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/getProfile?${userID}`, {
         method: 'GET',
       });
 
@@ -72,7 +72,7 @@ const handleUpdateProfile = async () => {
       const updatedData = {
         ...updatedProfileData, // Merge the updated data
     };
-        const response = await fetch(`http://localhost:8080/sys/user/updateProfile?${userID}`, {
+        const response = await fetch(`https://secure-bank.azurewebsites.net/sys/user/updateProfile?${userID}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

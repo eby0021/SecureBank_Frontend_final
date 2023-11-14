@@ -55,7 +55,7 @@ const SignupPayIDCheckedPage30Page = () => {
       return;
     }
     // Send the POST request to the backend
-    const response = await fetch('http://localhost:8080//sys/user/insertOne', {
+    const response = await fetch('https://secure-bank.azurewebsites.net/sys/user/insertOne', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const TransactionHistory30WebFeelingPage = () => {
   const [balance, setBalance] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `http://localhost:8080/sys/user/getAccountMoney?${userID}`;
+    const apiUrl = `https://secure-bank.azurewebsites.net/sys/user/getAccountMoney?${userID}`;
 
     fetch(apiUrl)
       .then((response) => {
@@ -43,7 +43,7 @@ const TransactionHistory30WebFeelingPage = () => {
   //   };
   // }, []);
   useEffect(() => {
-    const apiUrl = `http://localhost:8080/sys/user/getAllTransactions?${userID}`;
+    const apiUrl = `https://secure-bank.azurewebsites.net/sys/user/getAllTransactions?${userID}`;
 
     fetch(apiUrl)
       .then((response) => {
