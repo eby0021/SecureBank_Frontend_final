@@ -160,7 +160,7 @@ const BPAY = () => {
             onClick={handleChatbotClick}>
               <Img
                 className="h-[110px] md:h-auto sm:mt-0  object-cover w-[100px] "
-                src="../../../images/girlChatbot.jpg"
+                src="../../../images/girlChatBot.jpg"
                 alt="ai28146662"
               />
              {/*  <div>
