@@ -110,7 +110,7 @@ const HomePageEveryDayAccount30WebFeelingPage = () => {
             onClick={handleChatbotClick}>
               <Img
                 className="h-[130px] md:h-auto sm:mt-0  object-cover w-[120px] "
-                src="../../../images/girlChatbot.jpg"
+                src="../../../images/girlChatBot.jpg"
                 alt="ai28146662"
               />
              {/*  <div>
